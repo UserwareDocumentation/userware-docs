@@ -1,5 +1,4 @@
-![Uploading image.png…]()
-
+![image](https://github.com/user-attachments/assets/3f4c7a33-41c9-43a4-b29d-8d6d93d18a63)
 
 # OpenSilver Overview
 What is OpenSilver?
