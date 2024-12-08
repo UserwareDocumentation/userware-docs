@@ -1,20 +1,8 @@
-{
-  "opensilver": {
-    "name": "OpenSilver",
-    "sections": [
-      {
-        "name": "General",
-        "items": [
-          {
-            "title": "Overview",
-            "path": "opensilver/Overview.md"
-          },
-          {
-            "title": "Getting Started",
-            "path": "opensilver/Getting Started.md"
-          }
-        ]
-      }
-    ]
-  }
-}
+product: OpenSilver
+sections:
+  - name: General
+    items:
+      - title: Overview
+        path: Overview.md
+      - title: Getting Started
+        path: Getting Started.md
