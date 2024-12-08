@@ -1,3 +1,6 @@
+![Uploading image.png…]()
+
+
 # OpenSilver Overview
 What is OpenSilver?
 OpenSilver is an open-source replacement for Microsoft Silverlight. It is a development tool allowing developers to write web applications using .NET, C# (or VB.NET or F#), and XAML, like Silverlight was. A notable difference with Silverlight is that applications created with OpenSilver run on all current browsers, including Chrome, Edge, Firefox and Safari, without requiring any plugin.
