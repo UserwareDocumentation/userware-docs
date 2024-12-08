@@ -1,1 +1,27 @@
--- 파일구조
+{
+  "opensilver": {
+    "name": "OpenSilver",
+    "sections": [
+      {
+        "name": "시작하기",
+        "items": [
+          {
+            "title": "소개",
+            "path": "opensilver/intro.md"
+          },
+          {
+            "title": "설치 방법",
+            "path": "opensilver/getting-started.md"
+          }
+        ]
+      },
+      {
+        "name": "고급 주제",
+        "items": [...]
+      }
+    ]
+  },
+  "xamlforblazor": {
+    ...
+  }
+}
