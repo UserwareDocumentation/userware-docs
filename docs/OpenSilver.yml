@@ -1,16 +1,16 @@
 product: OpenSilver
 items:
   - title: General
-    path: general/overview.md
+    path: General.md
     items:
       - title: Overview
         path: Overview.md
       - title: Getting Started
         path: Getting Started.md
   - title: Advanced
-    path: advanced/index.md
+    path: Advanced.md
     items:
       - title: Features
-        path: advanced/features.md
+        path: features.md
       - title: Migration Guide
-        path: advanced/migration.md
+        path: migration.md
