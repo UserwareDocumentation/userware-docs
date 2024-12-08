@@ -3,25 +3,18 @@
     "name": "OpenSilver",
     "sections": [
       {
-        "name": "시작하기",
+        "name": "General",
         "items": [
           {
-            "title": "소개",
-            "path": "opensilver/intro.md"
+            "title": "Overview",
+            "path": "opensilver/Overview.md"
           },
           {
-            "title": "설치 방법",
-            "path": "opensilver/getting-started.md"
+            "title": "Getting Started",
+            "path": "opensilver/Getting Started.md"
           }
         ]
-      },
-      {
-        "name": "고급 주제",
-        "items": [...]
       }
     ]
-  },
-  "xamlforblazor": {
-    ...
   }
 }
