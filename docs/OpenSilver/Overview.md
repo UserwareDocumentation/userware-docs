@@ -1,4 +1,4 @@
-# OpenSilver Overview 1
+# OpenSilver Overview1
 What is OpenSilver?
 
 
