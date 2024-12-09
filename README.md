@@ -1,6 +1,11 @@
 # example
 
 
+```
+docs/OpenSilver
+    /XAML for Blazor
+    /...
+```
 
 ```yml
 product: OpenSilver
