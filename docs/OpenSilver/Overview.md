@@ -4,11 +4,12 @@
 What is OpenSilver?
 OpenSilver is an open-source replacement for Microsoft Silverlight. It is a development tool allowing developers to write web applications using .NET, C# (or VB.NET or F#), and XAML, like Silverlight was. A notable difference with Silverlight is that applications created with OpenSilver run on all current browsers, including Chrome, Edge, Firefox and Safari, without requiring any plugin.
 
-![image](https://github.com/user-attachments/assets/3f4c7a33-41c9-43a4-b29d-8d6d93d18a63)
 
 The OpenSilver project was first announced in March 2020 (Technical Preview) by Userware, a French company founded in 2007 specializing in Microsoft development technologies, which had already been working since 2014 on the conversion from C # / XAML to HTML / JavaScript, as part of its other product called CSHTML5. OpenSilver can be downloaded from OpenSilver.NET. The site also contains sample applications and case studies.
 
 The full OpenSilver source code is available under the MIT license on GitHub at github.com/OpenSilver
+
+![image](https://github.com/user-attachments/assets/3f4c7a33-41c9-43a4-b29d-8d6d93d18a63)
 
 ## Why the need to replace Silverlight?
 In 2007 Microsoft released Silverlight, a plugin for Internet browsers that revolutionized both the browsing experience for users and the development experience for programmers.
