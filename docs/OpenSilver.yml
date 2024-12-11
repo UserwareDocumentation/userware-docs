@@ -11,7 +11,7 @@ items:
         path: Getting Started.md
         type: Item
       - title: Set Up Dev Envirronment
-        path: Set Up Dev Envirronment.md
+        path: Set Up Dev Environment.md
         type: Item
   - title: Advanced
     path: Advanced.md
