@@ -13,6 +13,9 @@ items:
       - title: Set Up Dev Envirronment
         path: Set Up Dev Environment.md
         type: Item
+      - title: Internals
+        path: internals-how-it-works.md
+        type: Item
   - title: Advanced
     path: Advanced.md
     type: Section
