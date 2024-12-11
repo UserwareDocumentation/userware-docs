@@ -3,7 +3,6 @@ items:
   - title: General
     path: General.md
     type: Section
-    isExpanded: true
     items:
       - title: Overview
         path: Overview.md
