@@ -12,8 +12,6 @@ The OpenSilver project was first announced in March 2020 (Technical Preview) by 
 
 The full OpenSilver source code is available under the MIT license on GitHub at github.com/OpenSilver
 
-
-
 ## Why the need to replace Silverlight?
 In 2007 Microsoft released Silverlight, a plugin for Internet browsers that revolutionized both the browsing experience for users and the development experience for programmers.
 
