@@ -45,6 +45,7 @@ Below, you'll find a detailed document about how to set up your Development Envi
 ### Step-by-Step Instructions:
 1. **Go to the .NET Download Page:**
    - Access the .NET 7 official download page at [Download .NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+   - 
 
 2. **Select the Appropriate SDK:**
    - Choose the SDK according to your Windows operating system.
