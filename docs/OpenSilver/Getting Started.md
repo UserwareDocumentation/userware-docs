@@ -13,7 +13,6 @@ OpenSilver is distributed as a NuGet package (on [NuGet.org](https://www.nuget.o
 To create a new OpenSilver-type project, it is recommended to download the project templates first. To do that, go to https://OpenSilver.NET , click Download, log in with your Microsoft account and download the OpenSilver.VSIX file. This extension for Visual Studio will install project templates and other elements like the XAML editor.
 
 
-
 Next, open Visual Studio and click on "Create a new project" and choose "OpenSilver Application". Note that there is also a "UWP-Compatible" version of OpenSilver, which uses the XAML dialect of UWP instead of that of Silverlight, allowing increased compatibility with Universal Platform.
 
 
