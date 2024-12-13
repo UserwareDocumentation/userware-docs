@@ -1,7 +1,6 @@
 product: OpenSilver
 items:
   - title: General
-    path: General.md
     type: Section
     items:
       - title: Overview
@@ -25,13 +24,9 @@ items:
       - title: Deployment
         path: deployment.md
         type: Item
-  - title: Advanced
-    path: Advanced.md
+  - title: Troubleshooting
     type: Section
     items:
-      - title: Features
-        path: features.md
-        type: Item
-      - title: Migration Guide
-        path: migration.md
+      - title: Common issues and solutions
+        path: common-issues-and-solutions.md
         type: Item
