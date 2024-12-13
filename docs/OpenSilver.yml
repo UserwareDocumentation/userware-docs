@@ -30,3 +30,11 @@ items:
       - title: Common issues and solutions
         path: common-issues-and-solutions.md
         type: Item
+  - title: 3rd Party Libraries
+    type: Section
+    items:
+      - title: Telerik UI
+        path: telerik.md
+        type: Item
+  - title: Syncfusion
+    type: syncfucsion.md
