@@ -39,3 +39,6 @@ items:
       - title: Syncfusion
         path: syncfucsion.md
         type: Item
+      - title: Devexpress
+        path: devexpress.md
+        type: Item
