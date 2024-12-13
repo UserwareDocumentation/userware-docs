@@ -6,7 +6,7 @@
 <iframe 
   width="100%"
   maxWidth="600px"
-  height="56.25vw"
+  height="calc(100% * 0.5625)"
   src="https://www.youtube.com/embed/xaTtev_VV2k" 
   frameborder="0" 
   allowfullscreen>
