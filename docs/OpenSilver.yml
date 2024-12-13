@@ -16,6 +16,9 @@ items:
       - title: Internals
         path: internals-how-it-works.md
         type: Item
+      - title: Deployment
+        path: deployment.md
+        type: Item
   - title: Advanced
     path: Advanced.md
     type: Section
