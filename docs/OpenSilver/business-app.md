@@ -27,14 +27,14 @@ You can see a quick video demo from this tutorial here:
 > [!Video https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462]
 
 
-<iframe 
-  width="100%"
-  maxWidth="600px"
-  height="calc(100% * 0.5625)"
-  src="https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462" 
-  frameborder="0" 
-  allowfullscreen>
-</iframe>
+<div style="position: relative; width: 100%; max-width: 600px; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+</div>
 
 #### Detailed Steps
 
