@@ -36,5 +36,5 @@ items:
       - title: Telerik UI
         path: telerik.md
         type: Item
-  - title: Syncfusion
-    type: syncfucsion.md
+      - title: Syncfusion
+        type: syncfucsion.md
