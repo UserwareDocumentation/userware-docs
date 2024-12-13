@@ -5,16 +5,22 @@ items:
     type: Section
     items:
       - title: Overview
-        path: Overview.md
+        path: overview.md
         type: Item
       - title: Getting Started
-        path: Getting Started.md
+        path: getting-started-tour.md
         type: Item
       - title: Set Up Dev Envirronment
-        path: Set Up Dev Environment.md
+        path: development-setup.md
         type: Item
       - title: Internals
         path: internals-how-it-works.md
+        type: Item
+      - title: Interop
+        path: javascript-interop-and-libraries.md
+        type: Item
+      - title: Bisness Application
+        path: business-app.md
         type: Item
       - title: Deployment
         path: deployment.md
