@@ -19,7 +19,7 @@ items:
       - title: Interop
         path: javascript-interop-and-libraries.md
         type: Item
-      - title: Bisness Application
+      - title: Business Application
         path: business-app.md
         type: Item
       - title: Deployment
