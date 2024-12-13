@@ -26,6 +26,15 @@ You will need Visual Studio 2022 (or newer). Install the OpenSilver VSIX Templat
 You can see a quick video demo from this tutorial here:
 > [!Video https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462]
 
+
+<iframe 
+  width="100%"
+  maxWidth="600px"
+  src="Video https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462" 
+  frameborder="0" 
+  allowfullscreen>
+</iframe>
+
 #### Detailed Steps
 
 1. Configure the Database  
