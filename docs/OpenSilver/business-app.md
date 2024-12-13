@@ -30,6 +30,7 @@ You can see a quick video demo from this tutorial here:
 <iframe 
   width="100%"
   maxWidth="600px"
+  height="56.25vw"
   src="https://www.youtube.com/embed/ZyctFzWKda8?start=345&end=462" 
   frameborder="0" 
   allowfullscreen>
