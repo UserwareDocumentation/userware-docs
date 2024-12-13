@@ -3,14 +3,15 @@
 ## In-depth video
 
 
-<iframe 
-  width="100%"
-  maxWidth="600px"
-  height="calc(100% * 0.5625)"
-  src="https://www.youtube.com/embed/xaTtev_VV2k" 
-  frameborder="0" 
-  allowfullscreen>
-</iframe>
+<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/embed/xaTtev_VV2k" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 
 ## Internals overview
 
