@@ -34,19 +34,19 @@ items:
     type: Section
     items:
       - title: Overview
-        path: migrating-from-silverlight/overview.md
+        path: migrate-from-silverlight/overview.md
         type: Item
       - title: Environment Setuup
-        path: migrating-from-silverlight/environment-setup.md
+        path: migrate-from-silverlight/environment-setup.md
         type: Item
       - title: Compile With OpenSilver
-        path: migrating-from-silverlight/compile-with-opensilver.md
+        path: migrate-from-silverlight/compile-with-opensilver.md
         type: Item
       - title: Fix Runtime Issues
-        path: migrating-from-silverlight/fix-runtime-issues.md
+        path: migrate-from-silverlight/fix-runtime-issues.md
         type: Item
       - title: Example
-        path: migrating-from-silverlight/example.md
+        path: migrate-from-silverlight/example.md
         type: Item
   - title: 3rd Party Libraries
     type: Section
@@ -80,4 +80,58 @@ items:
         type: Item
       - title: Newtonsoft Json
         path: 3rd-party-libraries/newtonsoft-json-net.md
+        type: Item
+  - title: In depth topics
+    type: Section
+    items:
+      - title: WCF and HTTP Clients
+        path: in-depth-topics/telerik.md
+        type: Item
+      - title: Syle and Templates
+        path: in-depth-topics/styles-and-templates.md
+        type: Item
+      - title: Call JavaScript from C#
+        path: in-depth-topics/call-javascript-from-csharp.md
+        type: Item
+      - title: HtmlPresenter
+        path: in-depth-topics/html-presenter.md
+        type: Item
+      - title: TypeScript Definitions
+        path: in-depth-topics/prism.md
+        type: Item
+      - title: Native HTML Canvas
+        path: in-depth-topics/html-canvas.md
+        type: Item
+      - title: Custom Fonts
+        path: in-depth-topics/custom-fonts.md
+        type: Item
+      - title: Storyboards and Animations
+        path: in-depth-topics/storyboards-and-animations.md
+        type: Item
+      - title: Printing
+        path: in-depth-topics/printing.md
+        type: Item
+      - title: TextBlock (inlines and Run)
+        path: in-depth-topics/textblock-inlines-run.md
+        type: Item
+      - title: Relative Source
+        path: in-depth-topics/relative-source.md
+        type: Item
+      - title: ChildWindow
+        path: in-depth-topics/child-window.md
+        type: Item
+      - title: Accessing a Database
+        path: in-depth-topics/accessing-database.md
+        type: Item
+      - title: Bypass CORS with JSONP
+        path: in-depth-topics/jsonp.md
+        type: Item
+      - title: Bypass CORS with FIddler
+        path: in-depth-topics/fiddler-enable-cors.md
+        type: Item
+      - title: Performance Improvements
+        path: in-depth-topics/performance-improvement-net.md
+        type: Item
+      - title: Localization
+        path: in-depth-topics/localization.md
         type: Item
