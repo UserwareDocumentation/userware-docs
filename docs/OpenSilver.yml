@@ -57,3 +57,6 @@ items:
       - title: OData
         path: odata.md
         type: Item
+      - title: MVVM Light
+        path: galasoft-mvvm-light.md
+        type: Item
