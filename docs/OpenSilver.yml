@@ -60,3 +60,6 @@ items:
       - title: MVVM Light
         path: galasoft-mvvm-light.md
         type: Item
+      - title: Newtonsoft Json
+        path: newtonsoft-json-net.md
+        type: Item
