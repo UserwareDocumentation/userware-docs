@@ -30,6 +30,24 @@ items:
       - title: Common issues and solutions
         path: troubleshooting/common-issues-and-solutions.md
         type: Item
+  - title: Migrating from Silverlight
+    type: Section
+    items:
+      - title: Overview
+        path: migrating-from-silverlight/overview.md
+        type: Item
+      - title: Environment Setuup
+        path: migrating-from-silverlight/environment-setup.md
+        type: Item
+      - title: Compile With OpenSilver
+        path: migrating-from-silverlight/compile-with-opensilver.md
+        type: Item
+      - title: Fix Runtime Issues
+        path: migrating-from-silverlight/fix-runtime-issues.md
+        type: Item
+      - title: Example
+        path: migrating-from-silverlight/example.md
+        type: Item
   - title: 3rd Party Libraries
     type: Section
     items:
