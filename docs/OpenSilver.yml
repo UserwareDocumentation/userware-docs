@@ -4,62 +4,62 @@ items:
     type: Section
     items:
       - title: Overview
-        path: overview.md
+        path: general/overview.md
         type: Item
       - title: Getting Started
-        path: getting-started-tour.md
+        path: general/getting-started-tour.md
         type: Item
       - title: Set Up Dev Envirronment
-        path: development-setup.md
+        path: general/development-setup.md
         type: Item
       - title: Internals
-        path: internals-how-it-works.md
+        path: general/internals-how-it-works.md
         type: Item
       - title: Interop
-        path: javascript-interop-and-libraries.md
+        path: general/javascript-interop-and-libraries.md
         type: Item
       - title: Business Application
-        path: business-app.md
+        path: general/business-app.md
         type: Item
       - title: Deployment
-        path: deployment.md
+        path: general/deployment.md
         type: Item
   - title: Troubleshooting
     type: Section
     items:
       - title: Common issues and solutions
-        path: common-issues-and-solutions.md
+        path: troubleshooting/common-issues-and-solutions.md
         type: Item
   - title: 3rd Party Libraries
     type: Section
     items:
       - title: Telerik UI
-        path: telerik.md
+        path: 3rd-party-libraries/telerik.md
         type: Item
       - title: Syncfusion
-        path: syncfusion.md
+        path: 3rd-party-libraries/syncfusion.md
         type: Item
       - title: Devexpress
-        path: devexpress.md
+        path: 3rd-party-libraries/devexpress.md
         type: Item
       - title: RIA Services
-        path: ria-services.md
+        path: 3rd-party-libraries/ria-services.md
         type: Item
       - title: PRISM
-        path: prism.md
+        path: 3rd-party-libraries/prism.md
         type: Item
       - title: MEF
-        path: mef.md
+        path: 3rd-party-libraries/mef.md
         type: Item
       - title: Unity
-        path: unity.md
+        path: 3rd-party-libraries/unity.md
         type: Item
       - title: OData
-        path: odata.md
+        path: 3rd-party-libraries/odata.md
         type: Item
       - title: MVVM Light
-        path: galasoft-mvvm-light.md
+        path: 3rd-party-libraries/galasoft-mvvm-light.md
         type: Item
-      - title: Newtonsoft Json
+      - title: 3rd-party-libraries/Newtonsoft Json
         path: newtonsoft-json-net.md
         type: Item

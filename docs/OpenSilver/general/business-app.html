@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Creating a Business Application with RIA Services </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Creating a Business Application with RIA Services ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="creating-a-business-application-with-ria-services">Creating a Business Application with RIA Services</h2>
+
+<p>RIA Services (Rich Internet Application Services) is a powerful framework that simplifies the development of data-driven applications for the web. With RIA Services, you can easily create business applications that offer rich user experiences and efficient data access. This documentation will guide you through the process of creating a business application using OpenRIA Services (the evolved Open Source version of WCF RIA Services) using OpenSilver.</p>
+<p>OpenSilver includes a project template that lets you leverage Open RIA Services to easily create complex client/server business applications.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<p><a href="#getting-started">Getting Started</a></p>
+<p><a href="#tutorial">Tutorial</a></p>
+<p><a href="#source-code">Source Code</a></p>
+<p><a href="#troubleshooting-and-known-issues">Troubleshooting and Known Issues</a></p>
+<p><a href="#how-to-replace-sqlite-with-sql-server-for-authenticationmembershiproles">How to replace SQLite with SQL Server for Authentication/Membership/Roles</a></p>
+<p><a href="#see-also">See Also</a></p>
+<h3 id="getting-started">Getting Started</h3>
+<p>You will need Visual Studio 2022 (or newer). Install the OpenSilver VSIX Templates from <a href="https://opensilver.net/download.aspx">here</a>. These templates include the OpenSilver Business Application Template.</p>
+<h3 id="tutorial">Tutorial</h3>
+<p>You can see a quick video demo from this tutorial here:</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/ZyctFzWKda8?start=345&end=462" frameborder="0" allowfullscreen="true"></iframe></div>
+<h4 id="detailed-steps">Detailed Steps</h4>
+<ol>
+<li><p>Configure the Database<br>
+For this tutorial, we will use the AdventureWorks Lightweight database (AdventureWorksLT2022.bak). You can see instructions on how to download, restore, and setup here:
+<a href="https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&amp;tabs=ssms">https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&amp;tabs=ssms</a></p>
+</li>
+<li><p>Create a new &quot;OpenSilver Business Application Project&quot;
+<img src="/images/ria-business01.png" alt="OpenSilver Ria Services Business Application"></p>
+</li>
+<li><p>In Visual Studios's Solution Explorer, right-click the .Web project, click Add, and then click &quot;New Item&quot;.</p>
+</li>
+<li><p>Select the &quot;ADO.NET Entity Data Model&quot; template.</p>
+</li>
+</ol>
+<p><strong>Change the name to <code>AdventureWorks</code></strong> (instead of &quot;Model1&quot;), and then click Add.</p>
+<p><img src="/images/ria-business02.png" alt="ADO.NET Entity Data Model"></p>
+<ol start="5">
+<li><p>On the &quot;Choose Model Contents&quot; page, click &quot;EF Designer from database&quot;, and then click Next.
+<img src="/images/ria-business03.png" alt="EF Designer from database"></p>
+</li>
+<li><p><a name="database-connection"></a>On the &quot;Choose Your Data Connection&quot; page, create a connection to the &quot;AdventureWorks&quot; database.
+<img src="/images/ria-business04.png" alt="Connection Properties"></p>
+<ul>
+<li>IMPORTANT: Copy the ConnectionString that is shown in the dialog, and save it somewhere (it will be useful in a later step), then click Next:<br>
+<img src="/images/ria-business05.png" alt="Choose Your Data Connection"></li>
+</ul>
+</li>
+<li><p>On the &quot;Choose Your Database Objects and Settings&quot; page, expand the &quot;Tables&quot; node, select everything from the &quot;SalesLT&quot; schema, and click &quot;Finish&quot;</p>
+</li>
+</ol>
+<p><img src="/images/ria-business06.png" alt="Choose Your Database Objects"></p>
+<ol start="8">
+<li><p>The database is configured in the .Web project and the entity data model appears in the designer (Build the solution).
+<img src="/images/ria-business07.png" alt="Data Model"></p>
+</li>
+<li><p>Make sure that the ConnectionString is properly configured in the Web.Config file. To do so:</p>
+<ul>
+<li>Take the connection string that you copied in one of the previous steps.</li>
+<li>Replace any double quotes (&quot;) with <code>&amp;quot;</code></li>
+</ul>
+<p>For instance, replace the following example connection string:</p>
+<pre><code>metadata=res://*/AdventureWorks.csdl|res://*/AdventureWorks.ssdl|res://*/AdventureWorks.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=localhost;initial catalog=AdventureWorksLT2019;trusted_connection=true&quot;;
+</code></pre>
+<p>with this one:</p>
+<pre><code>metadata=res://*/AdventureWorks.csdl|res://*/AdventureWorks.ssdl|res://*/AdventureWorks.msl;provider=System.Data.SqlClient;provider connection string=&amp;quot;data source=localhost;initial catalog=AdventureWorksLT2019;trusted_connection=true&amp;quot;
+</code></pre>
+<p>(Note that the connection string above is just an example. You may need to adapt it based on your configuration. Refer to the &quot;Choose Your Data Connection&quot; dialog shown before to know what your connection string should look like.)</p>
+<ul>
+<li>Go to Web.config file, and add this new entry into the &lt;connectionStrings&gt; section, using the updated connection string from the previous step:</li>
+</ul>
+<pre><code class="lang-xml">&lt;add name=&quot;AdventureWorksLT2022Entities&quot; 
+     connectionString=&quot;(paste the edited connectionString here)&quot; 
+     providerName=&quot;System.Data.EntityClient&quot; /&gt;
+</code></pre>
+<p>Make sure that the &quot;name&quot; property is correct and that the connection string contains the password.</p>
+<p>Here is an example of valid setting in the Web.Config:</p>
+<pre><code class="lang-xml">&lt;connectionStrings&gt;
+    &lt;add name=&quot;DefaultConnection&quot; connectionString=&quot;Data Source=|DataDirectory|database\OpenSilverBusinessApplication1.db;Version=3;New=True;Compress=True;&quot; providerName=&quot;System.Data.EntityClient&quot;/&gt;
+    &lt;add name=&quot;AdventureWorksLT2022Entities&quot; connectionString=&quot;metadata=res://*/AdventureWorks.csdl|res://*/AdventureWorks.ssdl|res://*/AdventureWorks.msl;provider=System.Data.SqlClient;provider connection string=&amp;quot;data source=localhost;initial catalog=AdventureWorksLT2022;trusted_connection=true&amp;quot;&quot; providerName=&quot;System.Data.EntityClient&quot; /&gt;
+&lt;/connectionStrings&gt;
+</code></pre>
+<p>(Note that the connection string above is just an example. You may need to adapt it based on your configuration.)</p>
+</li>
+<li><p>Now that we configured the database, let's proceed to the Open RIA configuration. In Solution Explorer, right-click the .Web project, click Add, and then click &quot;New Item&quot;, select the &quot;Domain Service&quot; template. Name the new item &quot;OrganizationService&quot;.</p>
+</li>
+</ol>
+<p>Note: if you don't see the &quot;Domain Service&quot; item in the &quot;Add New Item&quot; dialog, make sure that you have downloaded the latest OpenSilver Visual Studio Extension (VSIX).</p>
+<p><img src="/images/ria-business08.png" alt="Add New Domain Item"></p>
+<ol start="11">
+<li>In the <code>Add New Domain Service Class</code> dialog box, select Customers from the Entities list.</li>
+</ol>
+<p>Note: if the list is empty, please rebuild the solution, and open the dialog again.</p>
+<p>Ensure that the &quot;Enable client access&quot; and &quot;Generate associated classes for metadata&quot; check boxes are selected. Click Ok.<br>
+<img src="/images/ria-business09.png" alt="Add New Domain Service"></p>
+<ol start="12">
+<li>Build the solution.<br>
+Building the solution generates the Domain Context and entities in the client project.</li>
+</ol>
+<p>For your information, in terms of naming, there are 2 cases:</p>
+<ul>
+<li>If the Service class on the server-side inherits from <code>DbDomainService&lt;T&gt;</code> (which is the case if you used the &quot;Add New Domain Service Class&quot;, on the server side), then the Domain <code>Service</code> class will have the same name as on the server-side. So the generated client-side <code>OrganizationService</code> class will have the same name as the server-side <code>OrganizationService</code> class.</li>
+<li>If the Service classe on the server-side inherits from <code>DomainService</code>, then on the client side, the Domain <code>Service</code> class will have the suffix <code>Context</code>. So the <code>OrganizationService</code> becomes <code>OrganizationContext</code>.<br>
+<img src="/images/ria-business10.png" alt="Services and Contexts"></li>
+</ul>
+<ol start="13">
+<li>Open file <code>Views\Home.xaml</code>, and include this code inside of the StackPanel:</li>
+</ol>
+<pre><code class="lang-xml">&lt;DataGrid x:Name=&quot;dataGridCustomers&quot;
+          Height=&quot;200&quot;/&gt;
+
+&lt;DataForm CurrentItem=&quot;{Binding ElementName=dataGridCustomers, Path=SelectedItem}&quot; 
+          Height=&quot;200&quot;/&gt;
+</code></pre>
+<p>The result will be like this:
+<img src="/images/ria-business11.png" alt="Xaml Code"></p>
+<ol start="13">
+<li>And in <code>Views\Home.xaml.cs</code>, include this private field:</li>
+</ol>
+<pre><code class="lang-c#">private readonly OrganizationService _context = new OrganizationService();
+</code></pre>
+<p>or the following one if you are in the second case described above:</p>
+<pre><code class="lang-c#">private readonly OrganizationContext _context = new OrganizationContext();
+</code></pre>
+<p>and after <code>InitializeComponent()</code> call, add this:</p>
+<pre><code class="lang-c#">dataGridCustomers.ItemsSource = _context.Customers;
+_context.Load(_context.GetCustomersQuery());
+</code></pre>
+<p>The result will be like this:<br>
+<img src="/images/ria-business12.png" alt="C# Code"></p>
+<ol start="14">
+<li>Execute the &quot;.Web&quot; project, then execute the &quot;.Browser&quot; project and check the results:
+<img src="/images/ria-business13.png" alt="Final"></li>
+</ol>
+<h3 id="source-code">Source Code</h3>
+<p>You can get the complete source code for that article <a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/OpenSilverBusinessApplicationDemo">here</a>.</p>
+<h3 id="troubleshooting-and-known-issues">Troubleshooting and Known Issues</h3>
+<h4 id="issues-that-you-may-encounter-at-runtime">Issues that you may encounter at runtime:</h4>
+<ul>
+<li>Make sure to <strong>run both the .Web project</strong> (for the server side) and <strong>.Browser project</strong> (for the client side).</li>
+<li>If you have an error that says &quot;<strong>No connection string named '(...)' could be found in the application config file.</strong>&quot;, make sure that you have added an entry to the Web.Config file as explained at <a href="#database-connection">this step</a>.</li>
+<li>If your application doesn't run or has some runtime errors, <strong>open the browser console (F12)</strong> and look at the errors listed there.</li>
+<li>If you see an error related to CORS (such as &quot;<strong>Access to fetch at 'http://localhost:54837/...' from origin 'http://localhost:55591' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.</strong>&quot;), then <a href="https://doc.opensilver.net/documentation/in-depth-topics/wcf-and-webclient.html#adding-support-for-cross-domain-calls-cors">configure CORS on the server-side</a>, or work around CORS entirely by <a href="https://simplelocalize.io/blog/posts/what-is-cors/#3-disable-browser-cors-checks">running your browser with disabled security</a></li>
+<li>If you receive the error &quot;<strong>Unable to load DLL 'SQLite.Interop.dll'</strong>: The specified module could not be found. (Exception from HRESULT: 0x8007007E)&quot;, this is a known issue where SQLite sometimes does not generate x86/x64 folders inside of the bin folder of the .Web project. Most of the times you just need to Clean and then Build the project until these folders are generated. You can also try stopping IIS Express from the system tray, and restarting the whole IIS by running the following commands in a Command Line with Administrator Privileges: <code>net stop winnat</code> and then <code>net start winnat</code>
+<img src="/images/ria-business14.png" alt="SQLite Interop Error"></li>
+<li>If you get some other &quot;<strong>Error 500</strong>&quot; on the server side, make sure that the &quot;.Web&quot; project is running under the &quot;x64&quot; platform target.</li>
+<li>If you get the other &quot;<strong>Unable to load the specified metadata resource</strong>&quot;, it indicates that the Connection String in the Web.Config file is incorrect. Specifically, the &quot;metadata=&quot; part should have a different value. Make sure that you have properly copied the string that was shown when creating the EDMX file (see screenshot below). Note: if you have placed your EDMX file inside a subfolder of the .Web project, you'll need to specify the folder name there too. For example, if your file &quot;AdventureWorks.edmx&quot; is located inside a folder named &quot;MyFolder&quot;, your connection string should be like this: metadata=res://<em>/MyFolder.AdventureWorks.csdl|res://</em>/MyFolder.AdventureWorks.ssdl|res://*/MyFolder.AdventureWorks.msl;   (...)
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/4a5f5714-22da-44e1-b5bc-4c1704648919" alt="image"></li>
+</ul>
+<h4 id="issues-that-you-may-encounter-at-design-time">Issues that you may encounter at design-time:</h4>
+<ul>
+<li>If you don't see the &quot;Add New Domain Service Class&quot; dialog, make sure to install the latest VSIX of OpenSilver.</li>
+<li>If the &quot;Add New Domain Service Class&quot; dialog is empty, make sure to rebuild the solution, and try again.</li>
+</ul>
+<h3 id="how-to-replace-sqlite-with-sql-server-for-authenticationmembershiproles">How to replace SQLite with SQL Server for Authentication/Membership/Roles:</h3>
+<p>The <code>Business Application</code> project template comes with built-in Authentication/Membership/Roles management using SQLite. You can replace SQLite with SQL Server or Azure SQL by creating a database that contains the default ASP.NET Membership tables and stored procedures (using Schema version 1) in your instance of SQL Server or Azure SQL, and then changing the file <code>Web.Config</code> (located inside the project with the <code>.Web</code> suffix) to make the Connection String point to the newly created database. Be sure to also update the sections <code>&lt;Membership&gt;</code> and <code>&lt;Role&gt;</code> in <code>Web.Config</code>. Read below for details:</p>
+<h5 id="--to-properly-configure-webconfig">- To properly configure Web.Config:</h5>
+<p>In the <code>&lt;ConnectionString&gt;</code> section, replace the SQLite connection string with the one for SQL Server or Azure SQL. This is what it usually looks like:</p>
+<pre><code class="lang-xml">&lt;connectionStrings&gt;
+	&lt;add name=&quot;AspNetMembershipDBConnection&quot; connectionString=&quot;data source=&lt;SERVER_URL_GOES_HERE&gt;;initial catalog=&lt;DATABASE_NAME_GOES_HERE&gt;;persist security info=True;user id=&lt;USER_ID_GOES_HERE&gt;;password=&lt;USER_PASSWORD_GOES_HERE&gt;;MultipleActiveResultSets=True&quot; providerName=&quot;System.Data.EntityClient&quot; /&gt;
+&lt;/connectionStrings&gt;
+</code></pre>
+<p>Then, delete the existing <code>&lt;profile&gt;</code>, <code>&lt;membership&gt;</code> and <code>&lt;roleManager&gt;</code> sections, and replace them with the following ones (note: make sure to double-check the <code>connectionStringName</code> property).</p>
+<pre><code class="lang-xml">	&lt;profile defaultProvider=&quot;AspNetSqlProfileProvider&quot;&gt;
+		&lt;providers&gt;
+			&lt;clear /&gt;
+			&lt;add name=&quot;AspNetSqlProfileProvider&quot;
+				type=&quot;System.Web.Profile.SqlProfileProvider&quot;
+				connectionStringName=&quot;AspNetMembershipDBConnection&quot;
+				applicationName=&quot;/&quot; /&gt;
+		&lt;/providers&gt;
+		&lt;properties&gt;
+			&lt;add name=&quot;FriendlyName&quot; type=&quot;System.String&quot;/&gt;
+		&lt;/properties&gt;
+	&lt;/profile&gt;
+	&lt;membership defaultProvider=&quot;AspNetSqlMembershipProvider&quot;&gt;
+		&lt;providers&gt;
+			&lt;clear /&gt;
+			&lt;add name=&quot;AspNetSqlMembershipProvider&quot;
+				type=&quot;System.Web.Security.SqlMembershipProvider&quot;
+				connectionStringName=&quot;AspNetMembershipDBConnection&quot;
+				enablePasswordRetrieval=&quot;false&quot;
+				enablePasswordReset=&quot;true&quot;
+				requiresQuestionAndAnswer=&quot;false&quot;
+				requiresUniqueEmail=&quot;false&quot;
+				maxInvalidPasswordAttempts=&quot;5&quot;
+				minRequiredPasswordLength=&quot;6&quot;
+				minRequiredNonalphanumericCharacters=&quot;0&quot;
+				passwordAttemptWindow=&quot;10&quot;
+				applicationName=&quot;/&quot;/&gt;
+		&lt;/providers&gt;
+	&lt;/membership&gt;
+	&lt;roleManager enabled=&quot;true&quot; defaultProvider=&quot;AspNetSqlRoleProvider&quot;&gt;
+		&lt;providers&gt;
+			&lt;clear /&gt;
+			&lt;add name=&quot;AspNetWindowsTokenRoleProvider&quot; type=&quot;System.Web.Security.WindowsTokenRoleProvider&quot; applicationName=&quot;/&quot; /&gt;
+			&lt;add name=&quot;AspNetSqlRoleProvider&quot;
+				type=&quot;System.Web.Security.SqlRoleProvider&quot;
+				connectionStringName=&quot;AspNetMembershipDBConnection&quot;
+				applicationName=&quot;/&quot; /&gt;
+		&lt;/providers&gt;
+	&lt;/roleManager&gt;
+</code></pre>
+<h5 id="--to-create-the-aspnet-membership-database-with-schema-version-1-in-your-instance-of-sql-server">- To create the ASP.NET Membership database (with Schema version 1) in your instance of SQL Server:</h5>
+<ol>
+<li>Navigate to the following folder on your disk: <code>C:\Windows\Microsoft.NET\Framework\v2.0.50727</code></li>
+<li>Execute the file <code>aspnet_regsql.exe</code>
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/71cc5e25-9b58-4f82-b1bb-94b202b7dfd4" alt="image"></li>
+<li>Follow the wizard to connect to your SQL Server database and click Next until you are done creating the tables and stored procedures
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/3614342a-e2c3-420a-93cc-0345c261136f" alt="image"></li>
+</ol>
+<h5 id="--to-create-the-aspnet-membership-database-with-schema-version-1-in-azure-sql">- To create the ASP.NET Membership database (with Schema version 1) in Azure SQL:</h5>
+<p>Since the file <code>aspnet_regsql.exe</code> won't work with Azure SQL, a working solution consists in the following:</p>
+<ol>
+<li>Start by using a local SQL Server instance such as one created with <code>SQL Server Developer Edition</code> or just any other one, and follow the instructions above to create the ASP.NET Membership database there.</li>
+<li>Then, export that database (schema+data) to a format that can be re-imported in Azure SQL. To do so, you can use <code>SQL Server Management Studio</code> (SSMS): right-click on the database that you created at the previous step, choose <code>Tasks</code> -&gt; <code>Generate Scripts</code>:
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/0888ddbd-7e57-4e4b-8630-7d4fad206bf1" alt="image">
+Follow the wizard, specifying that you want to export everything. Make sure to click &quot;Advanced&quot; and choose <code>Microsoft Azure SQL Database</code> under <code>Script for the database engine type</code>:
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/c8d2a4c4-53f2-4499-8664-2bbff9c06dea" alt="image">
+Also, be sure to choose <code>Schema and data</code> under <code>Types of data to script</code>:
+<img src="https://github.com/OpenSilver/OpenSilver.Documentation/assets/8248552/3638b9a7-5468-43cb-9a3c-c5a1e071a08d" alt="image"></li>
+<li>Create a new database on Azure SQL and run the SQL script that you exported at the previous step. To do so, you can use <code>SQL Server Management Studio</code> (SSMS): start by connecting to Azure DB, then right-click to create a new database, give it the same name as the locally created one, then right-click the new database, click &quot;Run Query...&quot; and run the SQL script that you created at the previous step.</li>
+</ol>
+<h3 id="see-also">See Also</h3>
+<ul>
+<li><a href="https://doc.opensilver.net/documentation/3rd-party-libraries/ria-services.html">OpenSilver Information about Open RIA Services</a></li>
+<li><a href="https://github.com/OpenSilver/SampleCRM">OpenSilver SampleCRM Business Demo Application</a></li>
+<li><a href="https://learn.microsoft.com/en-us/previous-versions/dotnet/wcf-ria/ee707344(v=vs.91)">Microsoft original documentation for WCF RIA Services</a></li>
+<li><a href="https://github.com/OpenRIAServices/OpenRiaServices/wiki">Open RIA Services Wiki</a></li>
+<li><a href="https://openriaservices.gitbook.io/openriaservices/">Open RIA Services Documentation</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/general/business-app.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

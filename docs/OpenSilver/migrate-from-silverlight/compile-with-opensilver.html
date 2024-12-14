@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compiling with OpenSilver </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Compiling with OpenSilver ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="compiling-with-opensilver">Compiling with OpenSilver</h1>
+
+<p><strong>Note: this section assumes that you would like to do the migration on your own. Alternatively, you can have your application migrated by Userware - the company behind OpenSilver - in a fast and cost-effective way, so that your resources are free to work on other tasks. Visit <a href="https://opensilver.net">OpenSilver.net</a> for details.</strong></p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>Before starting to migrate to OpenSilver:</p>
+<ul>
+<li>Follow the steps described on the &quot;<a href="environment-setup.html">Environment Setup</a>&quot; page</li>
+<li>Make sure that you have the full source code of the legacy Silverlight application that you wish to migrate to OpenSilver</li>
+<li><strong>Make sure that the legacy Silverlight application fully compiles on your developer machine</strong>. All the Silverlight projects should be loading and compiling properly, and all the referenced libraries should be properly resolved. Refer to the &quot;<a href="environment-setup.html">Environment Setup</a>&quot; page for the list of software that you may need to install to get the Silverlight application to compile.</li>
+<li>If the Silverlight application has database connections make sure that the connection strings are correct.
+<ul>
+<li>Go to <strong>Server Explorer</strong> tab</li>
+<li>Right click on <strong>Data Connections</strong> -&gt; <strong>Add Connection...</strong></li>
+<li>Enter the Server name then select database and click OK. the database will appear under <strong>Data Connections</strong></li>
+<li>To see the connection string, check the database's properties.</li>
+</ul>
+</li>
+<li>You do not need to be able to run the Silverlight application on your local developer machine yet, but it will be useful at a later stage.</li>
+</ul>
+<h2 id="the-general-principle">The general principle</h2>
+<p>The general principle for migrating a Silverlight application to OpenSilver consists of creating an OpenSilver-type project for each of the original Silverlight projects, then copying / pasting all the files from the original projects to the OpenSilver projects, and finally compiling the solution.</p>
+<p>In practice however, we do not want to copy/paste the files but rather share them between the original application and the migrated application, so that both applications can be maintained, at least in the short term. This also makes it easier to merge code changes in case that new developments or bug fixes are made on the original Silverlight application while we are still migrating it.</p>
+<p>To avoid manual editing of <strong>.sln</strong> and <strong>.csproj</strong> (or <strong>.vbproj</strong> or <strong>.fsproj</strong>) files the following steps can be taken.</p>
+<ul>
+<li><p>Create an OpenSilver application with the same name as the Silverlight application's but in a different location</p>
+</li>
+<li><p>Add an OpenSilver-type project in the OpenSilver solution for every project of the Silverlight solution, using the same names.<br>
+If the project type is a <strong>Silverlight Class Library</strong> then an <strong>OpenSilver Class Library</strong> needs to be created.</p>
+<p>Now we have the same directory structure as the original Silverlight application's.</p>
+</li>
+<li><p>Rename the OpenSilver solution and all its Silverlight related projects by adding <strong>.OpenSilver</strong> at the end</p>
+</li>
+<li><p>Remove <strong>.OpenSilver</strong> from the <strong>Assembly name</strong>
+In the Solution Explorer, right-click on the project -&gt; Properties<br>
+This needs to be done in order to not break the &quot;xmlns&quot; references in XAML files.</p>
+</li>
+<li><p>Copy all newly created <strong>.sln</strong> and <strong>.csproj</strong> (or <strong>.vbproj</strong> or <strong>.fsproj</strong>) files to their corresponding location in the Silverlight project's folder.</p>
+</li>
+</ul>
+<p>You can find more detailed instructions in this <a href="example.html">example</a>.</p>
+<h2 id="errors-are-expected">Errors are expected</h2>
+<p>Some compilation errors are expected, because OpenSilver currently only supports a (fairly large) subset of Silverlight functionality, so manual work should be expected. This guide provides tips and guidance to fix those compilation errors.</p>
+<h3 id="errors-from-xamlcs-or-xamlvb-or-xamlfs-sources">Errors from .xaml.cs (or .xaml.vb or .xaml.fs) sources</h3>
+<p>Many different compilation errors related to UI controls can occur if the project contains <strong>.xaml</strong> files (which is common in Silverlight applications). For example, errors while migrating C# code :</p>
+<p><img src="/images/XamlErrors.png" alt="xaml Errors" title="xaml Errors"></p>
+<p>This error is due to the files <strong>.g.i.cs</strong> not being generated. To fix it, click on the <strong>.xaml</strong> file, go to its properties (F4), and in the advanced section choose:</p>
+<pre><code>Build Action: Content
+Custom Tool: MSBuild:Compile
+</code></pre>
+<p><img src="/images/BuildAction.png" alt="Build Action" title="Build Action"></p>
+<p>Please note that if the project includes the <strong>Generic.xaml</strong> file for default styles, then it is likely that the project will be built with no error, but some components will not look like they are expected to. So the above steps need to be followed for both <strong>Generic.xaml</strong> and all other <strong>.xaml</strong> files.</p>
+<h3 id="make-build-configurations-consistent">Make build configurations consistent</h3>
+<p>Some large projects might have different build configurations with many compiler directives. As a result a lot of confusing errors might be encountered during compilation.
+It is a good practice to check the original <strong>Silverlight</strong> project and see if the build configurations are consistent with the <strong>OpenSilver</strong> project.</p>
+<h3 id="known-issues">Known issues</h3>
+<p>Visit the &quot;<a href="../troubleshooting/common-issues-and-solutions.html">Troubleshooting</a>&quot; page for known issues and tips.</p>
+<h2 id="use-compiler-directives-to-not-break-the-original-silverlight-application">Use compiler directives to not break the original Silverlight application</h2>
+<h4 id="in-c-or-vbnet-or-f-files">In C# (or VB.NET or F#) files:</h4>
+<p>Every time we need to make a change to the C# (or VB.NET or F#) code, we are going to use the #if OPENSILVER and #if !OPENSILVER compiler directives to distinguish between the original code and the migrated one. The goal is to be able to quickly find all the places that have been modified, and also to make changes to the files without breaking the original Silverlight application (for side by side comparison).</p>
+<p>OpenSilver may not have some required classes or methods implemented yet. A temporary solution for compiling the project would be to add empty classes/methods in the OpenSilver project.</p>
+<h4 id="in-xaml-files">In XAML files:</h4>
+<p>As far as XAML files are concerned, since compiler directives do not work in XAML, we recommend these 2 approaches to make changes to the XAML code without breaking the original Silverlight application:</p>
+<ul>
+<li>If it is a small change, try to do it in the C# (or VB.NET or F#) code-behind file instead of the XAML file. To do so, first add x:Name=&quot;SOME_NAME&quot; (in XAML) to the control that you wish to modify, then make the change in the constructor in the C# (or VB.NET or F#) code-behind, and use a #if OPENSILVER compiler directive to make sure that the change does not break the original Silverlight version of the application.</li>
+<li>If the change is extensive or if it cannot be done in the C# (or VB.NET or F#) code-behind, we recommend that you create a copy of the XAML file, and reference that copy in your OpenSilver project, while the original Silverlight application references the original file. For example, if you need to make a change to &quot;App.xaml&quot;, you should create a copy named for example &quot;App.OpenSilver.xaml&quot;, and have the OpenSilver project  reference that file instead of &quot;App.xaml&quot;. Note: the associated C# (or VB.NET or F#) code-behind file (&quot;App.xaml.cs/App.xaml.vb/App.xaml.fs&quot;) can still be shared between the original and migrated projects.</li>
+</ul>
+<h4 id="here-are-the-steps-to-copy-and-use-a-new-xaml-file">Here are the steps to copy and use a new XAML file:</h4>
+<h4 id="1-copy-the-name-of-the-xaml-file-that-needs-to-be-duplicated">1. Copy the name of the XAML file that needs to be duplicated</h4>
+<p><img src="/images/xaml_copy/1.png" alt="Copy XAML file" title="Copy XAML file"></p>
+<h4 id="2-add-a-new-item-to-the-opensilver-project">2. Add a new item to the OpenSilver project</h4>
+<p>In the <strong>Solution Explorer</strong> right-click on the folder where the file is located and choose <strong>Add -&gt; New item ...</strong></p>
+<p><img src="/images/xaml_copy/2.png" alt="Add new item" title="Add new item"></p>
+<h4 id="3-choose-the-item-type">3. Choose the item type</h4>
+<p>Most of the time xaml will represent different Silverlights controls - <strong>UserControl, ChildWindow, Page</strong> etc. In that case we can create the exact alternative OpenSilver provides.</p>
+<p><img src="/images/xaml_copy/3.png" alt="Choose control type" title="Choose control type"></p>
+<p>If it is not the case then we can simply create any of given controls and then rename and modify as needed.<br>
+<strong>Do not forget to change the new control's name to the one you want for your OpenSilver xaml file (here, we picked &quot;MyUserControl.OpenSilver.xaml&quot;)</strong></p>
+<h4 id="4-change-the-namespace">4. Change the namespace</h4>
+<p>Visual Studio will automatically generate a namespace which might not be the one we wanted. Copy the namespace from the original .cs (or .vb or .fs) file and replace it in the newly created <strong>.xaml</strong> and <strong>.xaml.cs</strong> (or <strong>.xaml.vb</strong> or <strong>.xaml.fs</strong>) files.<br>
+Here is an example from C#:</p>
+<p><img src="/images/xaml_copy/4.png" alt="Change namespace" title="Change namespace">
+<img src="/images/xaml_copy/5.png" alt="Change namespace" title="Change namespace"></p>
+<h4 id="5-exclude-the-original-component-from-the-project">5. Exclude the original component from the project</h4>
+<p>We can exclude the original <strong>.xaml</strong> and <strong>.cs</strong>(or <strong>.vb</strong> or <strong>.fs</strong>) files from project because now we have new ones. The steps below show you how to exclude a <strong>.cs</strong> file. The same steps can be followed for a <strong>.vb</strong> or <strong>.fs</strong> file.</p>
+<p><img src="/images/xaml_copy/6.png" alt="Exclude project" title="Exclude project"></p>
+<p>Here is how it looks like afterwards</p>
+<p><img src="/images/xaml_copy/7.png" alt="Excluded project" title="Excluded project"></p>
+<p>To see the files that are not part of the project click <strong>Show All Files</strong> button in <strong>Projects Explorer</strong></p>
+<p><img src="/images/xaml_copy/8.png" alt="Show all files" title="Show all files"></p>
+<p>Please note that it is also possible to replace only the .xaml file and share the original .cs (or .vb or .fs) file.
+For example, in C# migration, we can just exlude (or remove) <strong>.OpenSilver.xaml.cs</strong> from the project and include the original <strong>.xaml.cs</strong></p>
+<p>It will however look odd  because the .xaml.cs file will no longer be shown as a direct child of the .xaml file in the Solution Explorer.</p>
+<p><img src="/images/xaml_copy/9.png" alt="Share .cs file" title="Share .cs file"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/migrate-from-silverlight/compile-with-opensilver.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WCF and Http Clients </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="WCF and Http Clients ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="wcf-and-http-clients">WCF and Http Clients</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>OpenSilver provides support for web services and HTTP calls in multiple ways, including:</p>
+<ul>
+<li>The <em>&quot;Add Service Reference&quot;</em> feature of Visual Studio. Use this feature to easily communicate with SOAP / WCF web services. See below for <a href="#limitations-of-the-add-service-reference-support-soap">limitations</a> and a <a href="#tutorial-to-easily-create-a-soap-based-clientserver-app-in-opensilver-wcf">Tutorial</a>.</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Important limitations of the current release</strong>:</p>
+<ul>
+<li>When adding a WCF Service Reference, please be sure to uncheck the option &quot;Reuse types in referenced assemblies&quot;.</li>
+<li>Update the <code>System.ServiceModel.*</code> NuGet packages from v4.4 to v4.10.</li>
+<li>Some code like event handlers may not be generated, in this case include the Silverlight version of Reference.cs file into the project.</li>
+<li>Binary serialization is not yet fully supported, please adjust new endpoint with <code>basicHttpBinding</code> in the <code>web.config</code>.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=net-6.0">HttpClient</a></li>
+<li>The <em>&quot;WebClient&quot;</em> class. Use this classs to download strings from the web, as well as to communicate with REST / Web API web services. See below for a <a href="#tutorial-to-easily-create-a-rest-based-clientserver-app-in-opensilver-wep-api">Tutorial</a>. Please pay attention to the fact that System.Net.WebClient is not supported in the Browser for .NET 5+. However, you can use the migrated class OpenSilver.Compatibility.WebClient.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: to enable passing cookies (for credentials/authentication), put the following code in your App.xaml.cs constructor:</p>
+</blockquote>
+<pre><code>Application.Current.Host.Settings.DefaultSoapCredentialsMode = System.Net.CredentialsMode.Enabled;
+</code></pre>
+<ul>
+<li><a href="http://forums.cshtml5.com/viewtopic.php?f=7&amp;t=276">WebSockets</a></li>
+<li><a href="http://forums.cshtml5.com/viewtopic.php?f=7&amp;t=8121">SignalR</a></li>
+<li><a href="jsonp.html">JSONP</a></li>
+</ul>
+<h2 id="sample-application">Sample application</h2>
+<p>You can download sample applications from the <a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples">examples</a> folder:</p>
+<ul>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/WcfService1">WcfService1</a>. This is a sample for a server-side WCF project.</li>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/OpenSilverWcfConsumer">OpenSilverWcfConsumer</a>. This is a sample OpenSilver application, which interacts with the server-side project via WCF services.</li>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/ToDoWebApi">ToDoWebApi</a>. This is a sample for a server-side WebApi project.</li>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/OpenSilverRestConsumer">OpenSilverRestConsumer</a>. This is a sample OpenSilver application, which interacts with the server-side project via REST calls.</li>
+</ul>
+<p>Sample shows a basic To-Do management application.</p>
+<h2 id="limitations-of-the-add-service-reference-support-soap">Limitations of the &quot;Add Service Reference&quot; support (SOAP)</h2>
+<p>In the current version, OpenSilver has the following limitations regarding the &quot;Add Service Reference&quot; (SOAP) feature:</p>
+<ul>
+<li><p>Due to JavaScript restrictions in the browser, <em>cross-domain calls require the server to <a href="#adding-support-for-cross-domain-calls-cors">implement CORS</a></em>. In other words, if your client application is not hosted on the same domain as your WCF web service, you need to add CORS to the web service (or you can use <a href="Circumventing-cross-domain-policies-using-JSONP.html">JSONP</a> as an alternative to CORS, but it is not recommended for modern services). To add CORS to your web service, follow this <a href="#adding-support-for-cross-domain-calls-cors">tutorial</a>.</p>
+</li>
+<li><p>When adding a WCF Service Reference via the &quot;Add Service Reference&quot; command of VS, please be sure to uncheck the option &quot;Reuse types in referenced assemblies&quot;, and update the NuGet packages from v4.4 to v4.10.</p>
+</li>
+</ul>
+<!--Furthermore, please note that the following features are NOT yet supported:
+
+* Non-http bindings (only BasicHttpBinding and HTTPS/SSL are currently supported)
+* The generic type "FaultException<T>" (only the non-generic FaultException type is currently supported)
+
+We are working to add support for all of the above features as soon as possible. Please make sure to vote for your most wanted features on http://cshtml5.uservoice.com -->
+<h2 id="adding-support-for-cross-domain-calls-cors">Adding support for cross-domain calls (CORS)</h2>
+<p>Due to the JavaScript restrictions in the browser, cross-domain calls require the server to implement CORS. In other words, if your client application is not hosted on the same domain as your WCF web service, you need to add CORS to the web service (or you can use <a href="jsonp.html">JSONP</a> as an alternative to CORS, but it is not recommended for modern services).</p>
+<p>If you see the error <em>&quot;No 'Access-Control-Allow-Origin' header is present on the requested resource&quot;</em> in the browser Console window (F12), it is likely that CORS has not been properly configured.</p>
+<p>Here are your options:</p>
+<ul>
+<li><p>Either <em>host your application on the same domain as your web service(a good choice for the production environment)</em>. In this case, CORS won't be required and you won't encounter any cross-domain issues. However this is not practical during development because it requires you to publish your application every time you need to test.</p>
+</li>
+<li><p>Or <em>add CORS to your web service (recommended for development environment)</em>. This is the recommended approach but it assumes that you have access to the source code of your web service and you have the rights to modify it and publish it. See below for a tutorial on how to add CORS to your web service.</p>
+</li>
+<li><p>Or <em>work around the issue by running Chrome without CORS verification</em>. This is obviously only for development, not for use in production. To do so, open the Windows &quot;Run&quot; dialog (for example by pressing the Windows+R keys combination), and execute the following command:</p>
+</li>
+</ul>
+<pre><code>&quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --disable-web-security --user-data-dir=&quot;c:/chromedev&quot; --disable-features=SameSiteByDefaultCookies
+</code></pre>
+<ul>
+<li>Or <em>work around the issue by using Fiddler</em> to make the browser believe that your server allows cross-domain requests. This is obviously only for development, not for use in production. To do so, follow the steps described <a href="fiddler-enable-cors.html">here</a>.</li>
+</ul>
+<p>It is also possible to get <strong>SameSite</strong> attribute related errors similar to below when the client and web service are not hosted on the same domain.</p>
+<pre><code>A cookie associated with a cross-site resource at &lt;URL&gt; was set without the 'SameSite' attribute. ...
+</code></pre>
+<p>To solve this go to chrome://flags/ and disable <strong>SameSite by default cookies</strong>. But the option might be removed from latest versions of browsers.</p>
+<p><a href="https://doc.opensilver.net/documentation/how-to-topics/browser-with-arguments.html">Here</a> is how to launch OpenSilver project in Browser using custom arguments</p>
+<h3 id="to-add-cors-to-your-web-service-recommended-for-development-environment-simply-follow-these-steps">To add CORS to your web service (recommended for development environment), simply follow these steps:</h3>
+<blockquote>
+<p>⚠️ Please, read about <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS and security reasons of using CORS</a></p>
+</blockquote>
+<h4 id="1-if-you-are-using-a-soap-web-service">1) If you are using a SOAP web service:</h4>
+<p>i) Make sure you have the file <em>&quot;Global.asax.cs&quot;</em> in your server-side SOAP web service project. If you don't have that file, right-click the project name in the Solution Explorer, and click &quot;Add&quot; -&gt; &quot;Global Application Class&quot;.</p>
+<p>ii) Add the following code to the said file:</p>
+<pre><code>protected void Application_BeginRequest(object sender, EventArgs e)
+{
+    HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;/* the-absolute-URL-of-the-client-app */&quot;);
+
+    if (HttpContext.Current.Request.HttpMethod == &quot;OPTIONS&quot;)
+    {
+        //These headers are handling the &quot;pre-flight&quot; OPTIONS call sent by the browser
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE&quot;);
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, Accept, SOAPAction&quot;);
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Max-Age&quot;, &quot;1728000&quot;);
+        HttpContext.Current.Response.End();
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: To use cookies, which is necesary for authentication, there MUST be an <code>Access-Control-Allow-Origin</code> header set to the URL of the client application.
+The star wildcard is not sufficcient in this case and the preflight request WILL FAIL with the following error in the browser:
+<strong>Access to XMLHttpRequest at '<em>server-enpoint</em>' from origin '<em>client-endpoint</em>' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.</strong></p>
+</blockquote>
+<p>To see this code in action, follow the SOAP <a href="#tutorial-to-easily-create-a-soap-based-clientserver-app-in-opensilver-wcf">tutorial below</a>.</p>
+<h4 id="2-if-you-are-using-a-rest--web-api-web-service">2) If you are using a REST / Web API web service:</h4>
+<p>i) Modify Web.Config to add the following code (note: you need to add the code to the right section of Web.Config:</p>
+<pre><code>&lt;configuration&gt;
+  &lt;system.webServer&gt;
+
+    &lt;httpProtocol&gt;
+      &lt;customHeaders&gt;
+        &lt;add name=&quot;Access-Control-Allow-Origin&quot; value=&quot;*&quot; /&gt;
+        &lt;add name=&quot;Access-Control-Allow-Headers&quot; value=&quot;Content-Type, Content-Length&quot; /&gt;
+        &lt;add name=&quot;Access-Control-Allow-Methods&quot; value=&quot;POST,PUT,GET,DELETE,OPTIONS&quot; /&gt;
+      &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+
+  &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Please, replace * by the domain of your OpenSilver application.</p>
+<p>ii) Add the following code to each of your Web API controller classes:</p>
+<pre><code>// OPTIONS
+public HttpResponseMessage Options()
+{
+    return Request.CreateResponse(HttpStatusCode.OK);
+}
+</code></pre>
+<p>To see this code in action, follow the REST <a href="#tutorial-to-easily-create-a-rest-based-clientserver-app-in-opensilver-wep-api">tutorial below</a>.</p>
+<h2 id="wcf-authentication--cookies--passing-credentials">WCF authentication / cookies / passing credentials</h2>
+<ul>
+<li><em>SOAP:</em> to enable passing cookies (for credentials/authentication) in SOAP calls, put the following code in your App.xaml.cs constructor:
+Application.Current.Host.Settings.DefaultSoapCredentialsMode = System.Net.CredentialsMode.Enabled;
+You may also be interested to read the <a href="#limitations-of-the-add-service-reference-support-soap">SOAP limitations</a> and a <a href="#tutorial-to-easily-create-a-soap-based-clientserver-app-in-opensilver-wcf">SOAP tutorial</a>.</li>
+</ul>
+<!--* *REST:* to enable passing cookies (for credentials/authentication) in REST calls, use the *"WebClientWithCredentials"* class. The *"WebClientWithCredentials"* is similar to the *"WebClient"* class, except that it also has a *"CredentialsMode"* property that can be set to *"Enabled"* to automatically read the authentication cookie and send it back to all further requests. For a tutorial on how to use the *"WebClient"* class, click [here](#tutorial-to-easily-create-a-rest-based-clientserver-app-in-opensilver-wep-api).-->
+<h2 id="tips-for-debugging-wcf-services">Tips for debugging WCF services</h2>
+<ul>
+<li><p>In Visual Studio, create a standard C#-based &quot;Console&quot; project (based on the latest .NET Framework) and try to reference your web service from that project. This is useful to know if the error is related to OpenSilver or if it is a generic WCF error.</p>
+</li>
+<li><p>Install and launch the freeware <a href="https://www.telerik.com/fiddler">&quot;Fiddler&quot;</a> application to see what information is sent between the client and the server. You can compare this information with the information that is sent to/from the test Console application created above. This is useful to see if there are any differences between the OpenSilver implementation of WCF, and the pure .NET implementation.</p>
+</li>
+</ul>
+<h2 id="common-issues-and-solutions">Common issues and solutions</h2>
+<ul>
+<li>If you get the error &quot;No 'Access-Control-Allow-Origin' header is present on the requested resource&quot; when looking at the browser Controle log (F12), it means that the client and the server are not on the same domain and therefore you need to add support for CORS on the server. To do so, read the
+<a href="#adding-support-for-cross-domain-calls-cors">CORS-related section of this page</a>.</li>
+</ul>
+<h2 id="tutorial-to-easily-create-a-soap-based-clientserver-app-in-opensilver-wcf">Tutorial to easily create a SOAP-based client/server app in OpenSilver (WCF)</h2>
+<p>In this tutorial we are going to create a simple client/server application for managing To-Do items. If you have any feedback regarding this tutorial, please send us an email to contact@opensilver.net</p>
+<ol>
+<li><p>Create a new project of type &quot;WCF -&gt; <em>WCF Service Application&quot;</em>. Let's call it &quot;WcfService1&quot;</p>
+</li>
+<li><p>Replace <em>IService1.cs</em> with the following code:</p>
+</li>
+</ol>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+
+namespace WcfService1
+{
+    [ServiceContract]
+    public interface IService1
+    {
+        [OperationContract]
+        List&lt;ToDoItem&gt; GetToDos();
+
+        [OperationContract]
+        void AddOrUpdateToDo(ToDoItem toDoItem);
+
+        [OperationContract]
+        void DeleteToDo(ToDoItem toDoItem);
+    }
+
+    [DataContract]
+    public class ToDoItem
+    {
+        [DataMember]
+        public Guid Id { get; set; }
+
+        [DataMember]
+        public string Description { get; set; }
+    }
+}
+</code></pre>
+<ol start="3">
+<li>Replace <em>Service1.svc</em> with the following code:</li>
+</ol>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+
+namespace WcfService1
+{
+    public class Service1 : IService1
+    {
+        private static Dictionary&lt;Guid, ToDoItem&gt; _todos = new Dictionary&lt;Guid, ToDoItem&gt;();
+
+        public List&lt;ToDoItem&gt; GetToDos()
+        {
+            return _todos.Values.ToList();
+        }
+
+        public void AddOrUpdateToDo(ToDoItem toDoItem)
+        {
+            _todos[toDoItem.Id] = toDoItem;
+        }
+
+        public void DeleteToDo(ToDoItem toDoItem)
+        {
+            if (_todos.ContainsKey(toDoItem.Id))
+                _todos.Remove(toDoItem.Id);
+            else
+                throw new FaultException(&quot;ID not found: &quot; + toDoItem.Id);
+        }
+    }
+}
+</code></pre>
+<ol start="4">
+<li>Create the file <em>&quot;Global.asax</em> by right-clicking the project in the Solution Explorer, and clicking Add -&gt; New Item -&gt; Global Application Class -&gt; OK. Add the following code to it:</li>
+</ol>
+<pre><code>protected void Application_BeginRequest(object sender, EventArgs e)
+{
+    //You need to replace URL of a client app later
+    HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://localhost:55591&quot;);
+
+    if (HttpContext.Current.Request.HttpMethod == &quot;OPTIONS&quot;)
+    {
+        //These headers are handling the &quot;pre-flight&quot; OPTIONS call sent by the browser
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE&quot;);
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, Accept, SOAPAction&quot;);
+        HttpContext.Current.Response.AddHeader(&quot;Access-Control-Max-Age&quot;, &quot;1728000&quot;);
+        HttpContext.Current.Response.End();
+    }
+}
+</code></pre>
+<ol start="5">
+<li><p>Click &quot;Start Debugging&quot; (F5) and take note of the URL of the service. It should be something like: http://localhost:4598/Service1.svc
+Keep the project running.</p>
+</li>
+<li><p>In a new instance of Visual Studio, create a new project of type <em>OpenSilver -&gt; Empty Application</em>.</p>
+</li>
+<li><p>Click Project -&gt; <em>Add Service Reference</em>, and paste the URL of the service that you created above.  It should be something like: http://localhost:4598/Service1.svc where you must replace 4958 with your port number. Click GO and then OK (leave the default name &quot;ServiceReference1&quot;).</p>
+</li>
+<li><p>Manually update the NuGet packages from v4.4 to v4.10.</p>
+</li>
+<li><p>Modify the page <em>MainPage.XAML</em> by removing the default TextBlock and replacing it with the following code:</p>
+</li>
+</ol>
+<pre><code>&lt;StackPanel&gt;
+    &lt;TextBlock Text=&quot;CREATE A NEW TO-DO:&quot; Margin=&quot;0,20,0,0&quot; HorizontalAlignment=&quot;Left&quot;/&gt;
+    &lt;StackPanel Orientation=&quot;Horizontal&quot; Margin=&quot;0,10,0,0&quot;&gt;
+        &lt;TextBox x:Name=&quot;SoapToDoTextBox&quot; Width=&quot;200&quot; Text=&quot;Enter your To-Do here&quot;/&gt;
+        &lt;Button Content=&quot;Create&quot; Click=&quot;ButtonAddSoapToDo_Click&quot; Margin=&quot;5,0,0,0&quot;/&gt;
+    &lt;/StackPanel&gt;
+    &lt;TextBlock Text=&quot;LIST OF TODO's:&quot; Margin=&quot;0,20,0,0&quot; HorizontalAlignment=&quot;Left&quot;/&gt;
+    &lt;ItemsControl x:Name=&quot;SoapToDosItemsControl&quot; HorizontalAlignment=&quot;Left&quot;&gt;
+        &lt;ItemsControl.ItemTemplate&gt;
+            &lt;DataTemplate&gt;
+                &lt;StackPanel Orientation=&quot;Horizontal&quot; HorizontalAlignment=&quot;Left&quot;&gt;
+                    &lt;TextBlock Text=&quot;{Binding Description}&quot;/&gt;
+                    &lt;Button Content=&quot;Delete&quot; Click=&quot;ButtonDeleteSoapToDo_Click&quot; Margin=&quot;5,0,0,0&quot;/&gt;
+                &lt;/StackPanel&gt;
+            &lt;/DataTemplate&gt;
+        &lt;/ItemsControl.ItemTemplate&gt;
+    &lt;/ItemsControl&gt;
+    &lt;Button Content=&quot;Refresh the list&quot; Click=&quot;ButtonRefreshSoapToDos_Click&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;0,10,0,0&quot;/&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<ol start="10">
+<li>Add the following code to MainPage.xaml.cs (IMPORTANT: be sure to <em>replace the URL in orange</em> with the correct one - ie. use the same URL as above):</li>
+</ol>
+<pre><code>ServiceReference1.Service1Client _soapClient =
+    new ServiceReference1.Service1Client(
+        new CustomBinding(),
+        new System.ServiceModel.EndpointAddress(
+            new Uri(&quot;http://localhost:65264/Service1.svc&quot;)));
+
+private async Task GetTodosAsync()
+{
+    var todos = await _soapClient.GetToDosAsync();
+    SoapToDosItemsControl.ItemsSource = todos;
+}
+
+private async Task AddOrUpdateTodosAsync(ServiceReference1.ToDoItem todo)
+{
+    await _soapClient.AddOrUpdateToDoAsync(todo);
+    await GetTodosAsync();
+}
+
+private async Task DeleteAsync(ServiceReference1.ToDoItem todo)
+{
+    try
+    {
+        await _soapClient.DeleteToDoAsync(todo);
+        await GetTodosAsync();
+    }
+    catch (System.ServiceModel.FaultException ex)
+    {
+        // Fault exceptions allow the server to pass information such as &quot;Item not found&quot;:
+        System.Windows.MessageBox.Show(ex.Message);
+    }
+}
+
+void ButtonRefreshSoapToDos_Click(object sender, RoutedEventArgs e)
+{
+    _ = GetTodosAsync();
+}
+
+void ButtonAddSoapToDo_Click(object sender, RoutedEventArgs e)
+{
+    var todo = new ServiceReference1.ToDoItem()
+    {
+        Description = SoapToDoTextBox.Text,
+        Id = Guid.NewGuid()
+    };
+    _ = AddOrUpdateTodosAsync(todo);
+}
+
+void ButtonDeleteSoapToDo_Click(object sender, RoutedEventArgs e)
+{
+    var todo = (ServiceReference1.ToDoItem)((Button)sender).DataContext;
+    _ = DeleteAsync(todo);
+}
+</code></pre>
+<ol start="11">
+<li>Launch the project to test your client/server To-Do items application.</li>
+</ol>
+<p>There are working examples for both of these projects:</p>
+<ul>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/WcfService1">WcfService1</a></li>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/OpenSilverWcfConsumer">OpenSilverWcfConsumer</a></li>
+</ul>
+<h2 id="tutorial-to-easily-create-a-rest-based-clientserver-app-in-opensilver-wep-api">Tutorial to easily create a REST-based client/server app in OpenSilver (Wep API)</h2>
+<p>In this tutorial we are going to create a simple client/server application for managing To-Do items. If you have any feedback regarding this tutorial, please send us an email to contact@opensilver.net</p>
+<ol>
+<li><p>Create a new project of type <em>&quot;ASP.NET Core Web API&quot;</em>. Let's call it &quot;ToDoWebApi&quot;.</p>
+</li>
+<li><p>Modify <em>Program.cs</em> to add the following code:</p>
+</li>
+</ol>
+<pre><code>var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+
+const string corsApp = &quot;corsapp&quot;;
+//services cors
+builder.Services.AddCors(p =&gt; p.AddPolicy(corsApp, b =&gt;
+{
+    //You need to replace URL of a client app later
+    b.WithOrigins(&quot;http://localhost:55591/&quot;).AllowAnyMethod().AllowAnyHeader();
+}));
+
+var app = builder.Build();
+
+//app cors
+app.UseCors(corsApp);
+
+// Configure the HTTP request pipeline.
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+
+</code></pre>
+<ol start="3">
+<li>Create a new class called <em>&quot;ToDoItem.cs&quot;</em> inside the folder named <em>&quot;Models&quot;</em>. Copy/paste the following code:</li>
+</ol>
+<pre><code>namespace ToDoWebApi.Models
+{
+    public class ToDoItem
+    {
+        public Guid Id { get; set; }
+        public Guid OwnerId { get; set; }
+        public string? Description { get; set; }
+    }
+}
+</code></pre>
+<ol start="4">
+<li>Right-click the folder &quot;Controllers&quot; and click &quot;Add -&gt; Controller...&quot;. Enter the name <em>&quot;ToDoController&quot;</em> and choose &quot;Empty MVC Controller&quot; in the &quot;Template&quot; drop-down. Then click OK.
+Note: the name of the controller is very important because it will have a direct impact on the URL of your REST web service.</li>
+</ol>
+<pre><code>using Microsoft.AspNetCore.Mvc;
+using ToDoWebApi.Models;
+
+namespace ToDoWebApi.Controllers
+{
+    [ApiController]
+    [Route(&quot;[controller]&quot;)]
+    public class ToDoController : ControllerBase
+    {
+        private static readonly Dictionary&lt;Guid, ToDoItem&gt; ToDos = new();
+
+        // GET api/ToDo
+        [HttpGet]
+        public IEnumerable&lt;ToDoItem&gt; GetToDos()
+        {
+            return ToDos.Values.ToList();
+        }
+
+        // GET api/ToDo/5
+        [HttpGet(&quot;{id}&quot;)]
+        public ActionResult GetToDo(Guid id)
+        {
+            if (ToDos.ContainsKey(id))
+            {
+                return Ok(ToDos[id]);
+            }
+
+            return NotFound(&quot;ID not found: &quot; + id);
+        }
+
+        // PUT api/Todo/5
+        [HttpPut(&quot;{id}&quot;)]
+        public ActionResult PutToDoItem(Guid id, ToDoItem toDoItem)
+        {
+            if (id != toDoItem.Id)
+            {
+                return BadRequest(&quot;The ID must be the same as the ID of the todo&quot;);
+            }
+
+            ToDos[toDoItem.Id] = toDoItem;
+            return Ok();
+        }
+
+        // POST api/Todo
+        [HttpPost]
+        public ActionResult PostToDoItem(ToDoItem toDoItem)
+        {
+            ToDos[toDoItem.Id] = toDoItem;
+
+            return Ok();
+        }
+
+        // DELETE api/Todo/5
+        [HttpDelete(&quot;{id}&quot;)]
+        public ActionResult DeleteToDoItem(Guid id)
+        {
+            if (!ToDos.ContainsKey(id))
+            {
+                return NotFound(&quot;ID not found: &quot; + id);
+            }
+
+            ToDos.Remove(id);
+            return Ok();
+        }
+    }
+}
+
+</code></pre>
+<ol start="5">
+<li><p>Click &quot;Start Debugging&quot; (F5) and take note of the URL of the service. It should be something like: http://localhost:4858
+Keep the project running.</p>
+</li>
+<li><p>In a new instance of Visual Studio, create a new project of type <em>OpenSilver -&gt; Empty Application</em>.</p>
+</li>
+<li><p>Modify the page MainPage.XAML by removing the default TextBlock and replacing it with the following code:</p>
+</li>
+</ol>
+<pre><code>&lt;StackPanel&gt;
+    &lt;TextBlock Text=&quot;CREATE A NEW TO-DO:&quot; Margin=&quot;0,20,0,0&quot; HorizontalAlignment=&quot;Left&quot;/&gt;
+    &lt;StackPanel Orientation=&quot;Horizontal&quot; Margin=&quot;0,10,0,0&quot;&gt;
+        &lt;TextBox x:Name=&quot;RestToDoTextBox&quot; Width=&quot;200&quot; Text=&quot;Enter your To-Do here&quot;/&gt;
+        &lt;Button Content=&quot;Create&quot; Click=&quot;ButtonAddRestToDo_Click&quot; Margin=&quot;5,0,0,0&quot;/&gt;
+    &lt;/StackPanel&gt;
+    &lt;TextBlock Text=&quot;LIST OF TODO's:&quot; Margin=&quot;0,20,0,0&quot; Foreground=&quot;Black&quot; HorizontalAlignment=&quot;Left&quot;/&gt;
+    &lt;ItemsControl x:Name=&quot;RestToDosItemsControl&quot; HorizontalAlignment=&quot;Left&quot;&gt;
+        &lt;ItemsControl.ItemTemplate&gt;
+            &lt;DataTemplate&gt;
+                &lt;StackPanel Orientation=&quot;Horizontal&quot; HorizontalAlignment=&quot;Left&quot;&gt;
+                    &lt;TextBlock Text=&quot;{Binding Description}&quot;/&gt;
+                    &lt;Button Content=&quot;Delete&quot; Click=&quot;ButtonDeleteRestToDo_Click&quot; Margin=&quot;5,0,0,0&quot;/&gt;
+                &lt;/StackPanel&gt;
+            &lt;/DataTemplate&gt;
+        &lt;/ItemsControl.ItemTemplate&gt;
+    &lt;/ItemsControl&gt;
+    &lt;Button Content=&quot;Refresh the list&quot; Click=&quot;ButtonRefreshRestToDos_Click&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;0,10,0,0&quot;/&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<ol start="8">
+<li>Add the following code to MainPage.xaml.cs (<em>IMPORTANT</em>: be sure to <em>replace the URL in orange</em> with the correct one - ie. use the same URL as above):</li>
+</ol>
+<pre><code>const string BaseUrl = &quot;https://localhost:7037&quot;;
+private static readonly HttpClient Client = new HttpClient();
+
+private async Task DownloadAsync()
+{
+    using (var response = await Client.GetAsync(BaseUrl + &quot;/ToDo&quot;))
+    using (var content = response.Content)
+    {
+        var json = await content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        var items = JsonSerializer.Deserialize&lt;IEnumerable&lt;ToDoItem&gt;&gt;(json, options).ToList();
+        RestToDosItemsControl.ItemsSource = items;
+    }
+}
+
+private async Task AddAsync(ToDoItem toDoItem)
+{
+    var content = new StringContent(JsonSerializer.Serialize(toDoItem), Encoding.UTF8,
+        &quot;application/json&quot;);
+
+    await Client.PostAsync(BaseUrl + &quot;/ToDo&quot;, content);
+    await DownloadAsync();
+}
+
+private async Task DeleteAsync(ToDoItem toDoItem)
+{
+    await Client.DeleteAsync(BaseUrl + &quot;/ToDo/&quot; + toDoItem.Id);
+    await DownloadAsync();
+}
+
+void ButtonRefreshRestToDos_Click(object sender, RoutedEventArgs e)
+{
+    _ = DownloadAsync();
+}
+
+void ButtonAddRestToDo_Click(object sender, RoutedEventArgs e)
+{
+    var toDoItem = new ToDoItem
+    {
+        Id = Guid.NewGuid(),
+        Description = RestToDoTextBox.Text
+    };
+
+    _ = AddAsync(toDoItem);
+}
+
+void ButtonDeleteRestToDo_Click(object sender, RoutedEventArgs e)
+{
+    var todo = (ToDoItem)((Button)sender).DataContext;
+    _ = DeleteAsync(todo);
+}
+
+public class ToDoItem
+{
+    public Guid Id { get; set; }
+    public Guid OwnerId { get; set; }
+    public string Description { get; set; }
+}
+</code></pre>
+<ol start="9">
+<li>Launch the project to test your client/server To-Do items application.</li>
+</ol>
+<p><em>Note:</em> if there are CORS issues in the console, please update URL of the client app in program.cs for the WebApi project.</p>
+<p>There are working examples for both of the described projects:</p>
+<ul>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/ToDoWebApi">ToDoWebApi</a></li>
+<li><a href="https://github.com/OpenSilver/OpenSilver.Documentation/tree/master/examples/OpenSilverRestConsumer">OpenSilverRestConsumer</a></li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="accessing-database.html">Accessing a database</a></li>
+<li><a href="jsonp.html">Circumventing cross-domain policies using JSONP</a></li>
+</ul>
+<h2 id="contact-us">Contact Us</h2>
+<p>Please <a href="https://opensilver.net/contact.aspx">click here</a> for contact information.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/in-depth-topics/wcf-and-webclient.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

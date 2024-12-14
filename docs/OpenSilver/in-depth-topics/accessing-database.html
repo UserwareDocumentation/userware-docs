@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Accessing a Database </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Accessing a Database ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="accessing-a-database">Accessing a Database</h1>
+
+<h2 id="overview">Overview</h2>
+<p>For security reasons, accessing a database is always done on the server-side, not the client-side. In fact, the &quot;Connection String&quot;, which includes the URL and password of the database, should not be visible to the end-user.</p>
+<p>The client-side (ie. the OpenSilver-based front-end) communicates with the server (for example an ASP.NET / WCF Service application) via one of the following:</p>
+<ul>
+<li><a href="wcf-and-webclient.html">SOAP</a></li>
+<li><a href="wcf-and-webclient.html">REST</a></li>
+<li><a href="http://forums.cshtml5.com/viewtopic.php?f=7&amp;t=276">WebSockets</a></li>
+<li><a href="http://forums.cshtml5.com/viewtopic.php?f=7&amp;t=8121">SignalR</a></li>
+</ul>
+<h2 id="example">Example</h2>
+<p>You can download a sample client/server application from the following URL:</p>
+<p><a href="https://github.com/cshtml5/TestCshtml5WCF">https://github.com/cshtml5/TestCshtml5WCF</a></p>
+<blockquote>
+<p>⚠️ <strong>Note</strong>: The sample is made with <a href="http://cshtml5.com">CSHTML5</a> rather than OpenSilver, but the concepts are the same.</p>
+</blockquote>
+<p>The sample demonstrates how to pass entities between the client and the server.</p>
+<p>Although there is no database in the sample (instead, there is static dictionary on the server-side), database access can be easily added by modifying the file &quot;Service1.svc.cs&quot; located in the &quot;WcfService1&quot; project.</p>
+<p>Let's assume that you have an SqlServer database which contains a table named &quot;ToDoItemsTable&quot; that has the following columns:</p>
+<ul>
+<li>Description (type: varchar(max))</li>
+<li>ID (type: uniqueidentifier)</li>
+<li>CreationDate (type: date)</li>
+</ul>
+<p>To retrieve the list of ToDo items from the database instead of the static dictionary, open the file &quot;Service1.svc.cs&quot; and replace the following code:</p>
+<pre><code>private static Dictionary&lt;Guid, ToDoItem&gt; _todos = new Dictionary&lt;Guid, ToDoItem&gt;();
+
+public List&lt;ToDoItem&gt; GetToDos()
+{
+    return _todos.Values.ToList();
+}
+</code></pre>
+<p>with this one:</p>
+<pre><code>public List&lt;ToDoItem&gt; GetToDos()
+{
+    List&lt;ToDoItem&gt; result = new List&lt;ToDoItem&gt;();
+
+    string connectionString = &quot;HERE YOU MUST PUT THE STRING THAT ALLOWS TO CONNECT TO THE DATABASE&quot;;
+
+    // In a using statement, acquire the SqlConnection as a resource.
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        // Open the SqlConnection.
+        connection.Open();
+
+        // The following code uses an SqlCommand based on the SqlConnection.
+        using (SqlCommand command = new SqlCommand(&quot;SELECT Description, ID, CreationDate FROM ToDoItemsTable&quot;, connection))
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            // Traverse each row of the table:
+            while (reader.Read())
+            {
+                // Read the values of the &quot;Description&quot;, &quot;ID&quot;, and &quot;CreationDate&quot; columns:
+                string todoDescription = reader.GetString(0);
+                Guid todoId = reader.GetGuid(1);
+                DateTime todoCreationDate = reader.GetDateTime(2);
+
+                // Create a ToDo item instance that will be sent to the OpenSilver client-side application:
+                var todo = new ServiceReference2.ToDoItem()
+                {
+                    Description = todoDescription,
+                    Id = todoId,
+                    CreationDate = todoCreationDate
+                };
+            }
+        }
+    }
+
+    return result;
+}
+</code></pre>
+<h2 id="contact-us">Contact Us</h2>
+<p>Please <a href="https://opensilver.net/contact.aspx">click here</a> for contact information.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/in-depth-topics/accessing-database.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

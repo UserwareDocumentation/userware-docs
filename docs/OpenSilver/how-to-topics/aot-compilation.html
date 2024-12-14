@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to enable and run AOT compilation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to enable and run AOT compilation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="how-to-enable-and-run-aot-compilation">How to enable and run AOT compilation</h2>
+
+<ol>
+<li>Verify that .NET 7.0 (or higher) is installed. To do this, open a command prompt and run the command</li>
+</ol>
+<pre><code>dotnet --info
+</code></pre>
+<p><img src="/images/how-to-topics/dotnet-info.png" alt="Dotnet info"><br></p>
+<ol start="2">
+<li>Install the .NET WebAssembly build tools.
+Run the following command from an elevated command prompt (Administrative mode).</li>
+</ol>
+<pre><code>dotnet workload install wasm-tools
+</code></pre>
+<ol start="3">
+<li>To enable WebAssembly AOT compilation in your Blazor WebAssembly project, add the following property to your project file.</li>
+</ol>
+<pre><code>&lt;RunAOTCompilation&gt;true&lt;/RunAOTCompilation&gt;
+</code></pre>
+<p><img src="/images/how-to-topics/run-aot-compilation.png" alt="Enable AOT compilation"><br></p>
+<ol start="4">
+<li>Verify that your app uses correct packages.</li>
+</ol>
+<p><img src="/images/how-to-topics/verify-packages.png" alt="Preview"><br></p>
+<ol start="5">
+<li>Create Publish Profile.</li>
+</ol>
+<p><img src="/images/how-to-topics/create-publish-profile.png" alt="Profile" width="700"><br></p>
+<p><img src="/images/how-to-topics/choose-folder.png" alt="Choose Folder" width="700"><br></p>
+<p><img src="/images/how-to-topics/folder-location.png" alt="Folder Location" width="700"><br></p>
+<ol start="6">
+<li>Publish. It will take time.</li>
+</ol>
+<p>Try to change publishing settings If it does not work.</p>
+<p><img src="/images/how-to-topics/publish.png" alt="Publish" width="700"><br><br></p>
+<p><a href="add-site-to-iis.html">Here</a> is how to add and run published website.</p>
+<p>To verify that your application is actually running in AOT, please open the browser developer tools (F12), go to the Network tab, force refresh (Ctrl + F5) and check the size of the <strong>dotnet.wasm</strong> file. It is supposed to be several times bigger when running in AOT (non AOT wasm size is &lt; 3MB). If that's not the case then most probably it is not running in AOT.</p>
+<h2 id="a-quick-recap-about-aot">A quick recap about AOT</h2>
+<p>The concept of &quot;AOT&quot; exists in 2 contexts: <code>desktop/mobile</code> applications (CoreRT, NativeAOT, etc.) and <code>Blazor WebAssembly</code>. The 2 work in a very different way. Here is the explanation how both work.</p>
+<h4 id="when-running-on-windows-or-as-desktopmobile-apps">When running on Windows or as desktop/mobile apps:</h4>
+<ul>
+<li>Without AOT:</li>
+</ul>
+<p>VS will compile the C# to IL (Intermediate Language) (.DLLs)
+When app is launched, the JIT (&quot;Just-In-Time&quot; compilation) (which comes from .NET Framework runtime, or NET Core...) will convert IL into binary executable code.</p>
+<ul>
+<li>With AOT:</li>
+</ul>
+<p>VS will compile the C# to binary executable code.</p>
+<p>=&gt; No much difference in performance during application execution (on Windows) between non-AOT and AOT because JIT will compile to binary code on Windows when the application starts.</p>
+<h4 id="when-running-in-the-browser-with-blazor-webassembly">When running in the browser with Blazor WebAssembly:</h4>
+<ul>
+<li>Without AOT:</li>
+</ul>
+<p>VS will compile the C# to IL (Intermediate Language) (.DLLs).
+There is no JIT in the browser.
+&quot;dotnet.wasm&quot; is the only binary executable that gets downloaded. &quot;dotnet.wasm&quot; loads the IL of the DLLs and &quot;interprets&quot; them.
+Negative impact on performance because interpretion layer.</p>
+<ul>
+<li>With AOT:</li>
+</ul>
+<p>VS will compile the C# to binary executable code (files are bigger than IL).</p>
+<p>=&gt; Much better performance with AOT during application execution. As far as initial loading is concerned, AOT needs to download bigger files, so initial load is slower, but then the files are cached by the browser, so when coming back go the app, initial time is the same as non-AOT.</p>
+<p>Note: when C# reflection is used in the application, or &quot;dynamic&quot; types, the execution will temporaroly fall back to &quot;interpreted&quot; mode, which means that the runtime performance of AOT will be nearly the same as non-AOT. We are working to remove all those types, so as to really benefit from AOT.</p>
+<p>We recommend clients to already publish the application in AOT mode so that you can see the current state with AOT. Please keep in mind that further AOT performance improvement will come as we remove more types and we make further optimizations, to leverage AOT and not fall back to &quot;interpreted&quot; mode too often.</p>
+<p>For AOT to work you need to publish your app (not merely starting it with Visual Studio). You can publish it to a local folder and point IIS to it (make sure to select &quot;self-contained&quot; in the publishing options).</p>
+<h2 id="known-issues">Known Issues</h2>
+<h3 id="1-exit-code--1073741571">1. Exit code: -1073741571</h3>
+<p>In some cases publish fails with an error similar to following.</p>
+<pre><code>Exit code: -1073741571
+C:\Program Files\dotnet\packs\Microsoft.NET.Runtime.WebAssembly.Sdk\6.0.0-preview.5.21301.5\Sdk\WasmApp.targets(145,5): Error : Precompiling failed for 
+</code></pre>
+<p>This error happens when <strong>mono-aot-cross.exe</strong> tries to convert llvm method which is very big and most probably it will be one of <strong>InitializeComponent</strong> functions.</p>
+<p>One of the techniques to find how many presumably big functions exist in the project would be to search <strong>.xaml.g.cs</strong> generated files that are bigger than 1MB. The solution can be to split <strong>InitializeComponent</strong> method to several methods, exclude <strong>.xaml</strong> file and include generated <strong>.xaml.g.cs</strong> one one.</p>
+<p>To find out which exact function causes the issue follow the steps.</p>
+<ul>
+<li>Set MSBuild output verbosity to <code>Diagnostic</code> level<br>
+Tools -&gt; Options -&gt; Build And Run</li>
+<li>Publish the project again and wait until it fails.</li>
+<li>Find the last execution of <strong>mono-aot-cross.exe</strong> and run it with <strong>cmd.exe</strong> adding <strong>-v</strong> (verbosity) option.</li>
+</ul>
+<p>The command will look similar to this</p>
+<pre><code>&quot;C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.browser-wasm\6.0.0-preview.5.21301.5\Sdk\..\tools\mono-aot-cross.exe&quot; -v --debug --llvm &quot;--aot=no-opt,static,direct-icalls,deterministic,dwarfdebug,llvm-path=C:\Program Files\dotnet\packs\Microsoft.NET.Runtime.Emscripten.2.0.12.Sdk.win-x64\6.0.0-preview.5.21281.1\tools\bin\,llvmonly,interp,asmonly,llvm-outfile=MyLib.dll.bc&quot; MyLib.dll
+</code></pre>
+<p>There is also <strong>MONO_PATH</strong> environment variable that need to be set before running the command. It will be shown in Visual Studio output as well.</p>
+<p>If command succeeded you will see some statistic about converted methods etc. If it fails you will see the last method it was trying to convert and fails.</p>
+<pre><code>converting llvm method void MyApp.Views.MyEditServiceCodeDetailsView:InitializeComponent ()
+</code></pre>
+<h3 id="solution">Solution</h3>
+<p>It turns out that the bug is not directly related to the function size but the amount of lines that are adding objects to the List</p>
+<pre><code>var parents_8ce7371e02ef489e9893174ae5411181 = new global::System.Collections.Generic.List&lt;global::System.Object&gt;();
+parents_8ce7371e02ef489e9893174ae5411181.Add(TextBlock_c0999e8200734224a58a6861f2e68cfb);
+parents_8ce7371e02ef489e9893174ae5411181.Add(StackPanel_8465a697e0a94b7ca24107bb115330f6);
+parents_8ce7371e02ef489e9893174ae5411181.Add(StackPanel_c7b62394168e4c7da9eabfbeb9d6a833);
+</code></pre>
+<p>Having many .Add lines in generated .g.cs code increases probability for mono-aot-cross.exe to fail.</p>
+<p>As a workaround, OpenSilver compiler can be adapted to generate local function inside InitializeComponent() and add list items inside the function.</p>
+<pre><code>var parents_8ce7371e02ef489e9893174ae5411181 = new global::System.Collections.Generic.List&lt;global::System.Object&gt;();
+void parents_8ce7371e02ef489e9893174ae5411181_func() {
+    parents_8ce7371e02ef489e9893174ae5411181.Add(TextBlock_c0999e8200734224a58a6861f2e68cfb);
+    parents_8ce7371e02ef489e9893174ae5411181.Add(StackPanel_8465a697e0a94b7ca24107bb115330f6);
+    parents_8ce7371e02ef489e9893174ae5411181.Add(StackPanel_c7b62394168e4c7da9eabfbeb9d6a833);
+};
+parents_8ce7371e02ef489e9893174ae5411181_func();
+</code></pre>
+<p>To achieve that we need 3 lines of code.</p>
+<ul>
+<li>Open <code>GeneratingCSharpCode.cs</code> file</li>
+<li>Find the following line</li>
+</ul>
+<pre><code>while (elementForSearch != null &amp;&amp; elementForSearch.Parent != null)`
+</code></pre>
+<ul>
+<li>Add this line before while statement</li>
+</ul>
+<pre><code>stringBuilder.AppendLine(&quot;void &quot; + nameForParentsCollection + &quot;_func() {&quot;);
+</code></pre>
+<ul>
+<li>Add this two lines after while statment</li>
+</ul>
+<pre><code>stringBuilder.AppendLine(&quot;};&quot;);
+stringBuilder.AppendLine(nameForParentsCollection + &quot;_func();&quot;);
+</code></pre>
+<h3 id="2-not-served-mime-types-after-publish">2. Not served mime types after publish.</h3>
+<p>After running published website the following error can appear in browser console.</p>
+<p><img src="/images/how-to-topics/not_served_files.png" alt="Not served error"><br></p>
+<p>That means some of MIME types are not served by IIS. To solve that go to <strong>MIME Types</strong> and add <strong>.dat</strong> and <strong>.blat</strong> types both <strong>application/octet-stream</strong>.</p>
+<p><img src="/images/how-to-topics/mime_types.png" alt="Not served error"><br></p>
+<p><img src="/images/how-to-topics/add_mime_type.png" alt="Not served error"><br></p>
+<h3 id="a-quick-recap-about-aot-1">A quick recap about AOT</h3>
+<p>The concept of &quot;AOT&quot; exists in 2 contexts: <code>desktop/mobile</code> applications (CoreRT, NativeAOT, etc.) and <code>Blazor WebAssembly</code>. The 2 work in a very different way. Here is the explanation how both work.</p>
+<h4 id="when-running-on-windows-or-as-desktopmobile-apps-1">When running on Windows or as desktop/mobile apps:</h4>
+<ul>
+<li>Without AOT:</li>
+</ul>
+<p>VS will compile the C# to IL (Intermediate Language) (.DLLs)
+When app is launched, the JIT (&quot;Just-In-Time&quot; compilation) (which comes from .NET Framework runtime, or NET Core...) will convert IL into binary executable code.</p>
+<ul>
+<li>With AOT:</li>
+</ul>
+<p>VS will compile the C# to binary executable code.</p>
+<p>=&gt; No much difference in performance during application execution (on Windows) between non-AOT and AOT because JIT will compile to binary code on Windows when the application starts.</p>
+<h4 id="when-running-in-the-browser-with-blazor-webassembly-1">When running in the browser with Blazor WebAssembly:</h4>
+<ul>
+<li>Without AOT:</li>
+</ul>
+<p>VS will compile the C# to IL (Intermediate Language) (.DLLs).
+There is no JIT in the browser.
+&quot;dotnet.wasm&quot; is the only binary executable that gets downloaded. &quot;dotnet.wasm&quot; loads the IL of the DLLs and &quot;interprets&quot; them.
+Negative impact on performance because interpretion layer.</p>
+<ul>
+<li>With AOT:</li>
+</ul>
+<p>VS will compile the C# to binary executable code (files are bigger than IL).</p>
+<p>=&gt; Much better performance with AOT during application execution. As far as initial loading is concerned, AOT needs to download bigger files, so initial load is slower, but then the files are cached by the browser, so when coming back go the app, initial time is the same as non-AOT.</p>
+<p>Note: when C# reflection is used in the application, or &quot;dynamic&quot; types, the execution will temporaroly fall back to &quot;interpreted&quot; mode, which means that the runtime performance of AOT will be nearly the same as non-AOT. We are working to remove all those types, so as to really benefit from AOT.</p>
+<p>We recommend clients to already publish the application in AOT mode so that you can see the current state with AOT. Please keep in mind that further AOT performance improvement will come as we remove more types and we make further optimizations, to leverage AOT and not fall back to &quot;interpreted&quot; mode too often.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/how-to-topics/aot-compilation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Migrating from Silverlight to OpenSilver </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Migrating from Silverlight to OpenSilver ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <div class="header-top">
+        
+        <header id="header">
+                    <div class="wrapper">
+                        <div class="header_in">
+                            <div id="hamb_menu" class="hamb show_sm"></div>
+                            <a class="logo" href="https://opensilver.net/">
+                                <img src="/images/OpenSilver-3.1-Logo-MidRes.png">
+                            </a>
+                            <!--<nav class="hide_sm">
+                                <ul>
+                                    <li><a href="https://opensilver.net/download.aspx">Download</a></li>
+                                    <li><a href="/documentation/general/overview.html">Doc</a></li>
+                                    <li><a href="https://opensilver.net/gallery">Gallery</a></li>
+                                    <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+        
+                                    <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                    <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    <li id="nav_more">More...</li>
+                                </ul>
+                            </nav>
+        
+                            <div class="header_UserSignin">
+                                <p id="UserInformations"></p>
+        
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--<div class="additional_nav_out">
+                        <div id="close_nav" class="close_btn hide_sm"></div>
+                        <div class="wrapper">
+        
+                            <div class="additional_nav">
+                                <div class="additional_nav-col">
+                                    <h4>Product:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/download.aspx">Download </a></li>
+                                        <li><a href="/documentation/general/overview.html">Documentation</a></li>
+                                        <li><a href="https://opensilver.net/gallery/"</a></li>
+                                        <li><a href="https://opensilver.net/gallery#success-stories">Success Stories</a></li>
+                                        <li><a href="https://opensilver.net/links/whatsnew.aspx">What's New</a></li>
+                                        <li><a href="https://github.com/OpenSilver/OpenSilver">Source code on GitHub</a></li>
+                                        <li><a href="https://opensilver.net/">Home</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col">
+                                    <h4>Services:</h4>
+                                    <ul>
+                                        <li><a href="https://opensilver.net/links/migration-package.aspx">SL Migration Package</a></li>
+                                        <li><a href="https://opensilver.net/migrate/upload-xap.aspx">Upload Your .XAP</a></li>
+        
+                                    </ul>
+                                </div>
+        
+                                <div class="additional_nav-col">
+                                    <h4>Company:</h4>
+                                    <ul>
+        
+                                        <li><a href="https://opensilver.net/contact.aspx">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="additional_nav-col social">
+                                    <a class="additional_nav-social" href="https://twitter.com/OpenSilverTeam">
+                                        <img src="/images/follow-us-on-twitter-light.png">
+                                        <small>follow us on</small>
+                                        twitter
+                                    </a>
+        
+                                    <a class="additional_nav-social" href="https://github.com/OpenSilver/OpenSilver">
+                                        <img src="/images/follow-us-on-github-light.png">
+                                        <small>view source on</small>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-8">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="migrating-from-silverlight-to-opensilver">Migrating from Silverlight to OpenSilver</h1>
+
+<h2 id="overview">Overview</h2>
+<p><strong>Before reading this section, please make sure to read the general <a href="../general/overview.html">OpenSilver overview</a> page first.</strong></p>
+<p>The general principle for migrating a Silverlight application to OpenSilver consists in creating an OpenSilver-type project for each of the original Silverlight projects, then copying / pasting all the files from the original projects to the OpenSilver projects, and finally compiling the solution.</p>
+<p>In practice some compilation errors are expected, since OpenSilver currently supports a (fairly large) subset of Silverlight functionality. Particularly in the area of third-party libraries, some manual work may be required if a particular library is not yet supported.</p>
+<p>Userware, the company behind the open-source project OpenSilver, is currently working on compatibility with third-party components and has already successfully implemented many components of the Telerik UI suite. Userware has also been able to reach a good level of support for RIA Services, PRISM, MEF, MvvmLight, SharpZipLib, Newtonsoft, and other Silverlight libraries.</p>
+<p>When a functionality is not available, the developer has several possibilities: bypass it with alternative C# (or VB.NET or F#) code and XAML, use a .NET Standard library which provides equivalent functionality, <a href="https://doc.opensilver.net/documentation/general/javascript-interop-and-libraries.html">develop it in JavaScript</a>, or <a href="https://doc.opensilver.net/documentation/general/javascript-interop-and-libraries.html">import an existing JavaScript library</a>.</p>
+<p>In all cases, developers can <a href="https://www.opensilver.net/contact.aspx">contact Userware</a> for professional services ranging from the simple development of a functionality to the complete migration of an application. Case studies can be seen on the OpenSilver.NET web site showing applications migrated by Userware. A <a href="https://www.opensilver.net/links/migration-package.aspx">paid support package</a> is also available for guidance on migrating from Silverlight to OpenSilver.</p>
+<p>On the <a href="https://www.opensilver.net">OpenSilver web site</a>, there is also the possibility of <a href="https://www.opensilver.net/migrate/upload-xap.aspx">submitting a XAP file</a>, i.e. the executable of the Silverlight application to be migrated, in order to receive an analysis of the supported and unsupported features, as well as an estimate of the workload to complete the migration of the application.</p>
+<p>The advantages of migrating with OpenSilver rather than rewriting with another language can be many. While a reduction in the time and cost of migration seems obvious, other benefits include a result that is closer to the original application both in terms of appearance and functionality, higher post-migration productivity, and fewer risks of regressions because the code has already been tested. In fact, the code of the migrated application is almost identical to the original, so developers who must maintain it have a greater knowledge and mastery of the code compared to if it was rewritten with another programming language.</p>
+<h2 id="tutorial-to-migrate-from-silverlight-to-opensilver">Tutorial to migrate from Silverlight to OpenSilver</h2>
+<p><strong>Note: this section assumes that you would like to do the migration on your own. Alternatively, you can have your application migrated by Userware - the company behind OpenSilver - in a fast and cost-effective way, so that your resources are free to work on other tasks. Visit <a href="https://opensilver.net">OpenSilver.net</a> for details.</strong></p>
+<p>Migrating from Silverlight to OpenSilver usually involves the following steps. Click on any step to read the details:</p>
+<ol>
+<li><a href="environment-setup.html">Environment Setup</a></li>
+<li><a href="compile-with-opensilver.html">Compile with OpenSilver</a></li>
+<li><a href="fix-runtime-issues.html">Fix runtime issues</a></li>
+</ol>
+<p>For any questions, please feel free to contact the OpenSilver team at: <a href="https://opensilver.net/contact.aspx">https://opensilver.net/contact.aspx</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/OpenSilver/OpenSilver.Documentation/blob/master/documentation/migrate-from-silverlight/overview.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
