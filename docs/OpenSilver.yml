@@ -78,6 +78,6 @@ items:
       - title: MVVM Light
         path: 3rd-party-libraries/galasoft-mvvm-light.md
         type: Item
-      - title: 3rd-party-libraries/Newtonsoft Json
-        path: newtonsoft-json-net.md
+      - title: Newtonsoft Json
+        path: 3rd-party-libraries/newtonsoft-json-net.md
         type: Item
