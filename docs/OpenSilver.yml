@@ -42,3 +42,6 @@ items:
       - title: Devexpress
         path: devexpress.md
         type: Item
+      - title: RIA Services
+        path: ria-services.md
+        type: Item
