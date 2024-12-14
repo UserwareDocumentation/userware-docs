@@ -1,16 +1,154 @@
-product: XAML for Blazor
+product: Xaml for Blazor
 items:
   - title: General
-    path: general/overview.md
+    type: Section
     items:
       - title: Overview
-        path: Overview.md
+        path: general/overview.md
+        type: Item
       - title: Getting Started
-        path: Getting Started.md
+        path: general/getting-started.md
+        type: Item
+      - title: Installation
+        path: general/installation.md
+        type: Item
+      - title: Project Structure
+        path: general/project-structure.md
+        type: Item
+
   - title: Components
-    path: components/index.md
+    type: Section
     items:
-      - title: Controls
-        path: components/controls.md
-      - title: Layouts
-        path: components/layouts.md
+      - title: Component Basics
+        path: components/basics.md
+        type: Item
+      - title: Component Lifecycle
+        path: components/lifecycle.md
+        type: Item
+      - title: Parameters
+        path: components/parameters.md
+        type: Item
+      - title: Events
+        path: components/events.md
+        type: Item
+      - title: Templates
+        path: components/templates.md
+        type: Item
+
+  - title: Data and State
+    type: Section
+    items:
+      - title: Data Binding
+        path: data/data-binding.md
+        type: Item
+      - title: State Management
+        path: data/state-management.md
+        type: Item
+      - title: Forms
+        path: data/forms.md
+        type: Item
+      - title: Validation
+        path: data/validation.md
+        type: Item
+
+  - title: Layout
+    type: Section
+    items:
+      - title: Grid System
+        path: layout/grid-system.md
+        type: Item
+      - title: Containers
+        path: layout/containers.md
+        type: Item
+      - title: Responsive Design
+        path: layout/responsive-design.md
+        type: Item
+      - title: Regions
+        path: layout/regions.md
+        type: Item
+
+  - title: Controls
+    type: Section
+    items:
+      - title: Basic Controls
+        path: controls/basic-controls.md
+        type: Item
+      - title: Navigation
+        path: controls/navigation.md
+        type: Item
+      - title: Lists and Tables
+        path: controls/lists-tables.md
+        type: Item
+      - title: Media
+        path: controls/media.md
+        type: Item
+      - title: Custom Controls
+        path: controls/custom-controls.md
+        type: Item
+
+  - title: Styling
+    type: Section
+    items:
+      - title: Themes
+        path: styling/themes.md
+        type: Item
+      - title: CSS Integration
+        path: styling/css-integration.md
+        type: Item
+      - title: Custom Styling
+        path: styling/custom-styling.md
+        type: Item
+      - title: Design System
+        path: styling/design-system.md
+        type: Item
+
+  - title: Advanced
+    type: Section
+    items:
+      - title: Dependency Injection
+        path: advanced/dependency-injection.md
+        type: Item
+      - title: Routing
+        path: advanced/routing.md
+        type: Item
+      - title: Security
+        path: advanced/security.md
+        type: Item
+      - title: Performance
+        path: advanced/performance.md
+        type: Item
+      - title: Testing
+        path: advanced/testing.md
+        type: Item
+
+  - title: API
+    type: Section
+    items:
+      - title: Core APIs
+        path: api/core.md
+        type: Item
+      - title: Component APIs
+        path: api/components.md
+        type: Item
+      - title: Utility APIs
+        path: api/utilities.md
+        type: Item
+      - title: Interface References
+        path: api/interfaces.md
+        type: Item
+
+  - title: Resources
+    type: Section
+    items:
+      - title: Examples
+        path: resources/examples.md
+        type: Item
+      - title: Best Practices
+        path: resources/best-practices.md
+        type: Item
+      - title: Migration Guide
+        path: resources/migration.md
+        type: Item
+      - title: Troubleshooting
+        path: resources/troubleshooting.md
+        type: Item
