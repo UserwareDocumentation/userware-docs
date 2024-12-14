@@ -1,0 +1,44 @@
+﻿- name: Build OpenSilver project from command-line
+  href: command-line-build.md
+- name: Publish OpenSilver project using command-line
+  href: command-line-publish.md
+- name: Configure IIS to use Brotli or Gzip compression
+  href: compression.md
+- name: Include OpenSilver private package in delivery
+  href: include-private-package.md
+- name: Launch OpenSilver project in Browser using custom arguments
+  href: browser-with-arguments.md
+- name: Run AOT compilation
+  href: aot-compilation.md
+- name: Add published OpenSilver App to IIS
+  href: add-site-to-iis.md
+- name: Performance profiling in Simulator
+  href: performance-profiler.md
+- name: Performance profiling in Browser
+  href: performance-profiler-browser.md
+- name: Measure performance with OpenSilver's Profiler class
+  href: openSilver-profiler.md
+- name: Debug OpenSilver applications in Browser
+  href: debug-in-browser.md
+- name: Add Application Settings
+  href: appsettings-json.md
+- name: Get latest preview of OpenSilver
+  href: get-latest-preview-version.md
+- name: Automated Tests with Selenium
+  href: selenium-automated-tests.md
+- name: Run on Mac
+  href: opensilver-on-mac.md
+- name: Visual Studio Code support
+  href: visual-studio-code-support.md
+- name: Enable Windows Authentication
+  href: enable-windows-authentication.md
+- name: Application Trimming
+  href: enable-trimming.md
+- name: Static Web Hosting
+  href: any-static-hosting.md
+- name: Class libraries with multiple target frameworks
+  href: multi-targetting.md
+- name: Using WCF with VB.Net
+  href: Wcf-service-with-VBnet.md
+- name: Deploy both client & backend on same Azure Website
+  href: deploy-client-backend-on-azure.md
