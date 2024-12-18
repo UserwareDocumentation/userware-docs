@@ -1,5 +1,7 @@
 # Overview
 
+![image](https://raw.githubusercontent.com/UserwareDocumentation/example/main/docs/XAMLforBlazor/general/images/1734510013754-image.png)
+
 ## What is Blazor XAML?
 
 Blazor XAML is a powerful UI framework that combines the familiar XAML markup language with Blazor's web development capabilities. It enables developers to create rich, interactive web applications using C# and XAML, bringing desktop application development patterns to the web platform.
