@@ -1,4 +1,4 @@
-← [Back to General](/docs/9/25)
+← [Back to Migrating from Silverlight](/docs/9/25)
 # Tutorial: Migration from Silverlight application to OpenSilver
 
 In this tutorial we are going to migrate an example of **Silverlight** application to **OpenSilver**. The C#.NET source code can be found [here](https://github.com/OpenSilver/CustomerApp).\
