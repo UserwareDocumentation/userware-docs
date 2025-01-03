@@ -1,4 +1,4 @@
-← [Back to General](/docs/9/25)
+← [Back to Migrating from Silverlight](/docs/9/25)
 # Migrating from Silverlight to OpenSilver
 
 ## Overview
