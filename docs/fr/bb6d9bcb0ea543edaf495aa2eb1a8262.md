@@ -1,3 +1,4 @@
+← [Back to General](/docs/9/1)
 # Guide du Développeur OpenSilver : Migration WPF
 
 Ce guide est conçu pour les développeurs WPF souhaitant migrer leurs applications vers OpenSilver. OpenSilver est un puissant framework qui permet de transformer des applications basées sur XAML en environnements web modernes, en implémentant parfaitement l'architecture et les paradigmes de développement principaux de WPF dans un contexte web. Il maintient notamment le support de l'architecture basée sur CustomControl de WPF tout en permettant des applications web haute performance via la technologie WebAssembly.
