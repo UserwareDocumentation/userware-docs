@@ -108,113 +108,136 @@ Le découplage via l'injection de dépendances et la facilitation des tests unit
 
 Le support complet de MVVM d'OpenSilver permet une migration vers le web tout en préservant l'architecture d'application WPF existante. En particulier pour les applications d'entreprise à grande échelle, une migration stable est possible tout en maintenant l'architecture MVVM éprouvée et en tirant parti des avantages du web.
 
+
 ## 5. Gestion des ressources
 
-OpenSilver fournit un système de gestion des ressources complet, identique à celui de WPF, permettant de gérer efficacement les styles, les modèles, les couleurs, les polices et d'autres ressources liées à l'interface utilisateur. Il prend en charge les dictionnaires de ressources, les styles, les modèles, ainsi que les ressources dynamiques, ce qui permet une transition transparente lors de la migration.
+OpenSilver prend en charge intégralement le puissant système de gestion des ressources de WPF. Une gestion flexible des ressources est possible via les systèmes **StaticResource** et **DynamicResource**, et une gestion systématique des ressources peut être mise en œuvre grâce à des structures hiérarchiques de dictionnaires de ressources.
 
-### Caractéristiques clés
+**Fonctionnalités principales**
 
-- **Support des dictionnaires de ressources** : Les styles, modèles et autres ressources peuvent être organisés dans des dictionnaires de ressources et référencés à travers toute l'application.
-- **Styles et modèles** : Prend en charge les styles, le ControlTemplate et le DataTemplate de WPF, permettant de personnaliser facilement l'interface utilisateur.
-- **Ressources dynamiques** : OpenSilver permet de modifier les styles et ressources de l'interface utilisateur au moment de l'exécution via DynamicResource.
-- **Support des thèmes** : OpenSilver prend également en charge le changement de thème, de la même manière que dans WPF, ce qui permet de passer d'un thème visuel à un autre en fonction de conditions ou des préférences des utilisateurs.
+* Système **StaticResource/DynamicResource**
+* Structure hiérarchique de dictionnaire de ressources
+* Prise en charge des thèmes et de l'internationalisation
+* Gestion des ressources à l'exécution
 
-### Exemple
+Le système de gestion des ressources d'OpenSilver suit directement la philosophie de conception de WPF. Les références de ressources optimisées à la compilation sont possibles via **StaticResource**, tandis que les ressources peuvent être modifiées dynamiquement à l'exécution via **DynamicResource**. Ce système de référence de ressources duale offre un équilibre entre performance et flexibilité.
 
-```xml
-<ResourceDictionary>
-  <Style TargetType="Button">
-    <Setter Property="Background" Value="Blue" />
-  </Style>
-</ResourceDictionary>
-```
+Les dictionnaires de ressources peuvent être organisés de manière hiérarchique, des ressources globales au niveau de l'application aux ressources locales au niveau du composant. Cette structure systématique permet de mettre en œuvre efficacement des systèmes de conception modernes comme Material Design ou Fluent Design.
 
-Avec ce code, les développeurs peuvent utiliser les dictionnaires de ressources comme dans WPF, définir des styles dans toute l'application et les référencer dans les éléments de l'interface utilisateur.
+Grâce aux caractéristiques de **DynamicResource**, les thèmes ou les langues peuvent être modifiés dynamiquement à l'exécution. Les changements de thème, comme le passage du mode sombre au mode clair, ou les changements de langue, peuvent être appliqués en temps réel selon les paramètres de l'utilisateur, et de nouvelles ressources depuis le serveur peuvent être immédiatement reflétées.
 
-## 6. Intégration avec la plateforme Web
+Grâce à ce système complet de gestion des ressources, les structures de ressources des applications WPF existantes peuvent être réutilisées telles quelles. En particulier pour les applications de grande envergure avec prise en charge des thèmes ou des langues multiples, une migration efficace est possible en utilisant les structures de dictionnaires de ressources existantes et les références de ressources dynamiques.
 
-OpenSilver ne se contente pas de reproduire les fonctionnalités de WPF, il exploite également les avantages de la plateforme Web. Grâce à WebAssembly, OpenSilver permet aux applications WPF de bénéficier de performances natives tout en s'exécutant dans le navigateur.
+## 6. Intégration avec la plateforme web
 
-OpenSilver facilite l'intégration de JavaScript, CSS et éléments HTML dans les applications XAML. Vous pouvez utiliser JavaScript pour interagir avec les contrôles OpenSilver, ou insérer des éléments HTML dans une application OpenSilver. Cela rend l'intégration entre les technologies Web et les applications XAML transparente, permettant une flexibilité maximale pour les développeurs.
+OpenSilver permet une interaction naturelle entre les applications XAML et la plateforme web. En particulier, le contenu web peut être parfaitement intégré dans XAML grâce à des contrôles spéciaux comme **HTMLPresenter**, et tous les éléments XAML sont conçus pour interagir efficacement avec la plateforme web.
 
-### Exemple d'intégration JavaScript
+**Fonctionnalités principales**
 
-OpenSilver permet aux développeurs d'utiliser JavaScript pour interagir avec les contrôles XAML. Par exemple, vous pouvez modifier dynamiquement les propriétés d'un bouton OpenSilver depuis JavaScript, ou réagir à des événements utilisateurs.
+* Prise en charge du contrôle **HTMLPresenter**
+* Interaction entre les éléments XAML et Web
+* Intégration des scripts natifs
+* Système de communication bidirectionnelle
 
-```javascript
-// Modifier la couleur de fond d'un bouton OpenSilver depuis JavaScript
-let button = document.getElementById('myButton');
-button.backgroundColor = 'Red';
-```
+OpenSilver est conçu pour ajouter naturellement des propriétés liées au web à tous les contrôles et éléments de mise en page XAML. Ainsi, les éléments XAML existants peuvent directement utiliser les fonctionnalités de la plateforme web, et la communication bidirectionnelle avec JavaScript s'effectue de manière fluide.
 
-De plus, vous pouvez intégrer des éléments HTML directement dans votre application OpenSilver et interagir avec eux via XAML et JavaScript.
+L'intégration des scripts natifs est mise en œuvre systématiquement. Les fonctions JavaScript peuvent être appelées directement depuis le code XAML, et inversement, les fonctionnalités des contrôles XAML peuvent être utilisées depuis JavaScript. Cette interaction flexible est particulièrement utile lorsqu'il s'agit d'intégrer des fonctionnalités web complexes dans des applications XAML.
 
-```xaml
-<Button Content="Cliquez-moi" Click="Button_Click">
-  <Button.Template>
-    <ControlTemplate TargetType="Button">
-      <StackPanel>
-        <TextBlock Text="Ceci est un bouton personnalisé" />
-        <html:div id="htmlContainer">Contenu HTML</html:div>
-      </StackPanel>
-    </ControlTemplate>
-  </Button.Template>
-</Button>
-```
+**HTMLPresenter** permet de rendre et de contrôler parfaitement le contenu web au sein des applications XAML. En particulier, les zones de vue web implémentées avec **CefSharp** ou **WebView** dans WPF peuvent être facilement migrées et réutilisées avec **HTMLPresenter**, maintenant ainsi les structures d'intégration web des applications hybrides existantes.
 
-## 7. Différences avec WPF et stratégies de migration
+Ce support systématique de l'interaction est l'un des principaux atouts d'OpenSilver. Les fonctionnalités web nécessaires lors de la migration des applications WPF peuvent être ajoutées de manière naturelle, et les puissantes fonctionnalités de la plateforme web peuvent être utilisées tout en maintenant les structures de code basées sur XAML existantes.
 
-Bien qu'OpenSilver conserve de nombreuses fonctionnalités fondamentales de WPF, c'est une nouvelle plateforme qui présente certaines différences. Lors de la migration, il est essentiel de comprendre ces différences et de mettre en place une stratégie adéquate.
+## 7. Différences par rapport à WPF et stratégies de migration
 
-### Différences principales
+Bien qu'OpenSilver implémente l'architecture principale de WPF dans l'environnement web, il existe certaines différences fondamentales dues aux caractéristiques de la plateforme web. Ces différences peuvent être efficacement abordées grâce aux API web standard et à l'intégration avec les serveurs, et dans certains domaines, elles offrent même des fonctionnalités améliorées.
 
-- **Performances et limitations de la plateforme** : Bien qu'OpenSilver offre des performances proches de celles d'une application native grâce à WebAssembly, il peut y avoir des limitations par rapport aux applications de bureau en raison des contraintes des navigateurs web.
-- **Compatibilité des contrôles** : Certains contrôles WPF peuvent ne pas être entièrement transférables sur OpenSilver. Par exemple, les contrôles WinForms ou l'accès direct au matériel ne sont pas compatibles.
-- **Différences entre navigateurs** : Les différents navigateurs peuvent avoir des comportements différents concernant le support de WebAssembly, ce qui peut entraîner des écarts de comportement entre les navigateurs.
+**Principales différences et solutions**
 
-### Stratégies de migration
+* Limitations d'accès au système de fichiers
+* Stockage et gestion des données
+* Cycle de vie de l'application
+* Cadre de sécurité et d'authentification
 
-1. **Commencer par les contrôles simples** : Il est conseillé de commencer par migrer les contrôles de base et courants de votre application, puis de tester leur comportement pour s'assurer qu'ils fonctionnent correctement dans OpenSilver.
-2. **Migration progressive** : Pour les applications complexes, une migration progressive est recommandée. Commencez par migrer les composants de l'interface utilisateur, puis migrez la logique métier et les services en arrière-plan.
-3. **Utiliser des bibliothèques communes** : Les bibliothèques XAML qui sont compatibles avec .NET Standard 2.0, comme CommunityToolkit.MVVM, peuvent être utilisées dans OpenSilver sans modification, ce qui simplifie la migration des applications complexes.
+L'accès au système de fichiers est une limitation fondamentale de la plateforme web. Bien que l'accès direct au système de fichiers via **System.IO** soit impossible côté client, les opérations liées aux fichiers peuvent être mises en œuvre via les alternatives suivantes :
+- Traitement des fichiers via les API serveur : les tâches de manipulation des fichiers sont gérées en envoyant des requêtes au serveur
+- Mise en œuvre du téléchargement/chargement de fichiers via l'API web standard **File API**
+- Prise en charge du glisser-déposer des fichiers via l'API **HTML5 Drag & Drop**
+- Fonctionnalité copier/coller via l'API **Clipboard**
+Ces API web standard permettent d'effectuer des opérations sur les fichiers tout en respectant les politiques de sécurité des navigateurs.
 
-## 8. Stratégie et Processus de Migration
+Le stockage et la gestion des données sont restructurés pour l'environnement web. Pour pallier les limitations des bases de données locales :
+- Mise en cache des données simples via **localStorage/sessionStorage**
+- Stockage de données structuré via **IndexedDB**
+- Mécanisme de synchronisation efficace avec les bases de données serveur
+- Gestion des données hors ligne grâce aux stratégies de mise en cache des **PWA**
+Ces solutions permettent une gestion stable des données dans les applications web.
 
-OpenSilver implémente parfaitement l'architecture de conception de base de WPF, permettant aux projets WPF d'être convertis en projets OpenSilver quasiment tels quels. Les éléments de base de WPF, comme la syntaxe XAML, le système Generic.xaml et les dictionnaires de ressources, sont identiquement implémentés, nécessitant très peu de modifications structurelles dans le code existant. Tous les contrôles WPF de base et les systèmes de mise en page, y compris `Window`, `UserControl` et `ContentControl`, sont fournis de manière identique, permettant de réutiliser directement le code XAML.
+Le cycle de vie de l'application est géré en fonction des caractéristiques du navigateur web :
+- Gestion de l'état de l'application en fonction des onglets/fenêtres du navigateur
+- Mise en œuvre de la navigation via l'API **History**
+- Prise en charge du rafraîchissement du navigateur, des boutons de retour/avant
+- Stratégies pour garantir la persistance de l'état de l'application
+En particulier, la structure **SPA** (Single Page Application) offre une expérience utilisateur similaire à celle des applications natives.
 
-### Éléments clés de la migration
+La sécurité et l'authentification suivent les normes web, ce qui peut être un avantage :
+- Utilisation des normes d'authentification modernes telles que **OAuth** et **JWT**
+- Contrôle d'accès aux ressources sécurisé via les politiques **CORS**
+- Sécurité renforcée grâce aux politiques de sécurité basées sur le navigateur
+- Facilité de gestion centralisée de l'authentification
 
-- **Conversion de la structure du projet** : La structure de base du projet WPF peut être utilisée sans modification. La navigation basée sur `Window`, la composition avec `UserControl` et la structure des dictionnaires de ressources sont appliquées de manière identique. Les éléments de syntaxe XAML, y compris les styles et la définition des modèles via `Generic.xaml` et la gestion des espaces de noms via `XAML using`, sont également maintenus.
-  
-- **Stratégie alternative pour les déclencheurs (Triggers)** : Les déclencheurs (Triggers) étant une fonctionnalité clé de WPF, mais non fournie dans des plateformes XAML modernes comme Uno Platform ou AvaloniaUI, OpenSilver propose diverses alternatives pour les gérer. Les fonctionnalités de déclenchement peuvent être efficacement mises en œuvre à travers des alternatives comme la gestion d'état via `VisualStateManager` (VSM), la conversion de valeurs via `IValueConverter`, la sélection dynamique de modèles via `DataTemplateSelector`, et la gestion des interactions avec le modèle de commande `ICommand`.
-  
-- **Résolution des dépendances spécifiques à la plateforme** : Le code spécifique à la plateforme, comme les appels à l'API Windows, l'accès au système de fichiers et l'utilisation de ressources natives, doit être converti pour utiliser des API web standard ou des implémentations OpenSilver. Par exemple, les éléments de mise en page tels que `Grid`, `StackPanel`, `DockPanel` et des contrôles complexes comme `ItemsControl` et `DataGrid` sont implémentés de manière identique, avec peu de modifications nécessaires dans le code UI.
+Ces différences représentent à la fois des contraintes de la plateforme web et de nouvelles opportunités. OpenSilver aborde efficacement ces contraintes grâce aux normes web et à l'intégration avec les serveurs, et surtout, grâce aux API web modernes, il offre une évolutivité et une accessibilité différentes de celles des applications de bureau.
+
+## 8. Stratégie et processus de migration
+
+OpenSilver implémente parfaitement l'architecture de conception de WPF, permettant aux projets WPF d'être convertis en projets OpenSilver presque tels quels. Les éléments principaux de WPF, comme la syntaxe de XAML, le système **Generic.xaml** et le système de dictionnaires de ressources sont implémentés de manière identique, nécessitant des changements structurels minimes dans le code existant. Tous les contrôles principaux de WPF et les systèmes de mise en page, y compris **Window**, **UserControl**, et **ContentControl**, sont fournis de manière identique, permettant la réutilisation du balisage XAML tel quel.
+
+**Éléments principaux de la migration**
+
+* Conversion de la structure du projet
+* Stratégie alternative pour les **Triggers**
+* Résolution de la dépendance à la plateforme
+* Approche de transition progressive
+
+La conversion de la structure du projet peut utiliser la structure de base de WPF telle quelle. La navigation basée sur **Window**, la modularisation des composants avec **UserControl**, et la structure des dictionnaires de ressources sont appliquées de manière identique, et le balisage XAML et les modèles de code-behind peuvent être utilisés sans modification. En particulier, le système de syntaxe de base de WPF, y compris les définitions de style et de modèle via **Generic.xaml** et la gestion des espaces de noms via **XAML using**, est maintenu.
+
+Bien que le système **Trigger** soit une fonctionnalité clé de WPF, il n'est pas fourni dans les plateformes XAML modernes comme **Uno Platform** et **AvaloniaUI**. OpenSilver propose diverses alternatives pour cela. La fonctionnalité **Trigger** peut être efficacement mise en œuvre via des alternatives comme la gestion des états avec **VisualStateManager** (VSM), la conversion de valeur via **IValueConverter**, la sélection dynamique de modèles via **DataTemplateSelector**, et la gestion des interactions via le modèle **ICommand**.
+
+La résolution de la dépendance à la plateforme peut être abordée de manière systématique. Les codes spécifiques à la plateforme, comme les appels à l'API Windows, l'accès au système de fichiers et l'utilisation des ressources natives, peuvent être convertis en API web standard ou en implémentations alternatives d'OpenSilver. En particulier, des éléments de mise en page comme **Grid**, **StackPanel**, **DockPanel** et des contrôles complexes comme **ItemsControl** et **DataGrid** sont implémentés de manière identique, nécessitant des modifications minimales du code UI.
 
 ## 9. Configuration de l'environnement de développement
 
-OpenSilver prend en charge le développement sur tous les systèmes d'exploitation majeurs, y compris Windows, macOS et Linux, à travers Visual Studio et Visual Studio Code. Il fournit un environnement de développement de pointe basé sur .NET 9.0 et, en particulier dans les environnements Windows, permet un développement et un test directs sans avoir besoin d'hébergement web virtuel, grâce au simulateur WPF.
+OpenSilver prend en charge le développement sur tous les principaux systèmes d'exploitation, y compris Windows, macOS et Linux, via **Visual Studio** et **Visual Studio Code**. Il fournit un environnement
 
-### Caractéristiques principales de l'environnement de développement
+ de développement de pointe basé sur **.NET 9.0**, et particulièrement dans les environnements Windows, permet un développement et des tests directs sans hébergement web virtuel grâce au simulateur WPF.
 
-- **Support des outils multiplateformes** : Les développeurs peuvent utiliser Visual Studio, avec son puissant concepteur XAML et son autocomplétion, ou un environnement plus léger avec Visual Studio Code. L'environnement de développement est uniforme à travers tous les systèmes d'exploitation majeurs, ce qui améliore la flexibilité pour les projets d'équipe.
-  
-- **Débogage intégré** : L'environnement de débogage intégré permet de déboguer aussi bien les zones Blazor WebAssembly que le code OpenSilver, offrant ainsi un débogage complet de l'application. Les développeurs peuvent utiliser des fonctionnalités familières du débogage WPF, telles que les points d'arrêt, l'inspection des variables et l'analyse de la pile d'appels.
-  
-- **Simulation WPF** : Sur les environnements Windows, la simulation WPF améliore la productivité des développeurs. Les applications peuvent être exécutées et testées directement comme des applications WPF, sans avoir besoin de configurer un serveur web distinct, et offrent un support complet pour le débogage, la visualisation et le suivi des performances.
+**Environnement de développement principal**
 
-## 10. Communauté et Ressources
+* Prise en charge des outils multiplateformes
+* Environnement de débogage intégré
+* Simulation WPF
+* Outils de productivité pour le développement
 
-OpenSilver bénéficie d'une évolution continue grâce à une communauté open source active. Les dernières mises à jour et informations techniques détaillées sont disponibles via le dépôt GitHub officiel et la documentation. Les expériences de migration réelles et des solutions peuvent être partagées à travers la communauté, permettant un échange constant de bonnes pratiques et de conseils techniques.
+L'environnement de développement multiplateforme assure la liberté de choix pour les développeurs. Ils peuvent utiliser le puissant concepteur XAML de Visual Studio et IntelliSense, et un développement efficace est également possible dans un environnement léger via **Visual Studio Code**. En offrant une expérience de développement identique sur tous les principaux systèmes d'exploitation, il améliore la flexibilité pour les projets d'équipe.
 
-### Ressources et Support
+L'environnement de débogage intégré fournit une expérience de développement WPF dans le développement web également. Les zones **Blazor WebAssembly** et le code **OpenSilver** peuvent être débogués, permettant un débogage complet de l'ensemble de la pile d'applications. Les développeurs WPF peuvent utiliser des fonctionnalités de débogage familières telles que les points d'arrêt, l'inspection des variables et l'analyse de la pile d'appels.
 
-- **Dépôt GitHub d'OpenSilver** : Le dépôt GitHub (github.com/opensilver/opensilver) offre un accès direct au code source du projet, où les demandes de fonctionnalités et les rapports de bugs peuvent être déposés.
-  
-- **Documentation officielle d'OpenSilver** : La documentation officielle fournit toutes les informations techniques nécessaires pour la migration et est continuellement mise à jour avec les nouvelles versions du projet.
-  
-- **Suivi des problèmes et forums de discussion** : Les discussions sur GitHub et des forums comme Stack Overflow sont des canaux cruciaux pour partager les expériences de migration et résoudre les problèmes. Les evangelistes OpenSilver et les contributeurs principaux participent activement en partageant des conseils techniques et des cas de développement récents.
-  
-- **Projets d'exemples et démonstrations** : De nombreux projets d'exemples et démonstrations sont mis à disposition pour aider les développeurs à se familiariser rapidement avec OpenSilver et à comprendre comment effectuer une migration en douceur.
+La simulation WPF améliore considérablement la productivité du développement dans les environnements Windows. Les applications peuvent être exécutées et testées directement comme des applications WPF, sans configuration de serveur web séparée, avec un support complet pour le débogage, la visualisation et le suivi des performances. Cela permet de raccourcir les cycles de développement et d'obtenir des retours immédiats.
 
-OpenSilver offre également un support professionnel pour les entreprises, avec des services de conseil technique, de stratégie de migration personnalisée et un soutien au développement. Cela permet une migration stable et efficace des applications WPF complexes vers le Web, en particulier pour les applications d'entreprise avec une logique métier complexe ou de nombreux contrôles personnalisés.
+## 10. Communauté et ressources
 
+OpenSilver assure son évolution continue et son support grâce à une communauté open source active. Les dernières mises à jour et informations techniques détaillées peuvent être obtenues via le dépôt GitHub officiel et la documentation, et diverses expériences réelles de migration et solutions peuvent être partagées au sein de la communauté. En particulier, les dernières tendances de développement et expériences pratiques sont continuellement partagées par les techniciens, évangélistes et contributeurs clés d'OpenSilver.
+
+**Ressources et support**
+
+* Dépôt GitHub d'OpenSilver
+* Documentation officielle d'OpenSilver
+* Suivi des problèmes et forums de discussion
+* Projets et démonstrations exemples
+
+La documentation officielle fournit toutes les informations techniques nécessaires à la migration. Des documents techniques détaillés, y compris ce guide, sont fournis sur le site de documentation officiel d'OpenSilver et sont mis à jour en continu. En particulier, les nouvelles fonctionnalités et améliorations sont reflétées dans la documentation avec les nouvelles versions, permettant une référence aux informations toujours actuelles.
+
+Grâce au dépôt GitHub (github.com/opensilver/opensilver), l'accès direct au code source du projet est possible, et la résolution des problèmes et les demandes de fonctionnalités peuvent être effectuées via le **suivi des problèmes**. En particulier, les bogues et améliorations découverts pendant la migration peuvent être directement signalés et participés au processus de résolution, contribuant à l'amélioration de la qualité du projet.
+
+Le support de la communauté est un canal crucial pour partager les expériences réelles des utilisateurs d'OpenSilver. Les expériences de migration peuvent être partagées et des méthodes de résolution de problèmes discutées avec d'autres développeurs via des plateformes comme **GitHub Discussions** et **Stack Overflow**. Les évangélistes et contributeurs principaux d'OpenSilver participent activement pour partager des conseils techniques et les derniers cas de développement, permettant aux membres de la communauté d'obtenir des solutions vérifiées et des bonnes pratiques applicables aux projets réels.
+
+OpenSilver propose également des services de support de migration professionnels pour les clients entreprises. La migration réussie des applications WPF à grande échelle est soutenue par l'établissement de stratégies de migration personnalisées, la consultation technique et un support direct au développement adapté aux besoins spécifiques de chaque entreprise. En particulier, pour les applications d'entreprise avec une logique métier complexe ou de nombreux contrôles personnalisés, une migration stable et efficace est possible grâce au support professionnel de l'équipe OpenSilver.
